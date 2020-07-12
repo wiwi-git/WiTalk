@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pt3-SU-ATc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hVY-DN-sp8">
+            <objects>
+                <tabBarController storyboardIdentifier="sb_tabbarcontroller" id="1PE-6K-qoE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9kS-3P-iUl"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7ME-7T-qVc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2wq-V4-AkM" kind="relationship" relationship="viewControllers" id="g9q-yD-Dz0"/>
+                        <segue destination="ygN-yp-MdS" kind="relationship" relationship="viewControllers" id="dED-u0-ZsM"/>
+                        <segue destination="M7k-Is-twY" kind="relationship" relationship="viewControllers" id="02R-AN-U57"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BgJ-R3-gly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842" y="-200"/>
+        </scene>
+        <!--Friend-->
+        <scene sceneID="Qmb-Hf-Uni">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Friend" id="2wq-V4-AkM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="1" id="Rhe-O2-Uy7"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Frp-ym-SyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-288" y="-309"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="lBh-Lg-OfJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="ygN-yp-MdS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="2" id="fXt-eo-PuM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clS-yu-O1q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-280" y="-200"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="ok4-kL-Hu2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPage" id="M7k-Is-twY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="3" id="djC-G2-f1U"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8R-qz-YrU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279" y="-98"/>
+        </scene>
+        <!--LoadingVC-->
+        <scene sceneID="Trb-Ta-XdI">
+            <objects>
+                <viewController id="Pt3-SU-ATc" customClass="LoadingVC" customModule="WiTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w0E-u1-8Ye">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxj-rq-ajd">
+                                <rect key="frame" x="101.5" y="424" width="211" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Sxj-rq-ajd" firstAttribute="centerX" secondItem="w0E-u1-8Ye" secondAttribute="centerX" id="NGA-Ei-rgq"/>
+                            <constraint firstItem="Sxj-rq-ajd" firstAttribute="centerY" secondItem="w0E-u1-8Ye" secondAttribute="centerY" id="wkN-Vd-Kin"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v7j-bt-J28"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IaH-bN-TX0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1693" y="-200"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y0Z-ne-EfA">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chat ListVC-->
+        <scene sceneID="C4a-4g-num">
+            <objects>
+                <viewController id="Boq-kU-7la" customClass="ChatListVC" customModule="WiTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mYq-dY-Gmt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I04-ai-ora">
+                                <rect key="frame" x="20" y="44" width="374" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sdu-Qi-Uk6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="채팅" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5B-FI-YWm">
+                                                <rect key="frame" x="0.0" y="10" width="183" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eCc-vh-QMs">
+                                                <rect key="frame" x="191" y="10" width="183" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHY-uh-x2t">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                        <state key="normal" title="B"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZB-eU-xP5">
+                                                        <rect key="frame" x="48" y="0.0" width="39.5" height="30"/>
+                                                        <state key="normal" title="B"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T3F-Qg-JY4">
+                                                        <rect key="frame" x="95.5" y="0.0" width="40" height="30"/>
+                                                        <state key="normal" title="B"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZ9-b8-bzK">
+                                                        <rect key="frame" x="143.5" y="0.0" width="39.5" height="30"/>
+                                                        <state key="normal" title="B"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Sdu-Qi-Uk6" secondAttribute="bottom" id="09y-vc-R3d"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sdu-Qi-Uk6" secondAttribute="trailing" id="Ith-BD-9n5"/>
+                                    <constraint firstItem="Sdu-Qi-Uk6" firstAttribute="top" secondItem="I04-ai-ora" secondAttribute="top" id="aI8-qj-Ewu"/>
+                                    <constraint firstItem="Sdu-Qi-Uk6" firstAttribute="leading" secondItem="I04-ai-ora" secondAttribute="leading" id="pxx-co-5Hn"/>
+                                    <constraint firstAttribute="height" constant="50" id="zh5-hs-mZx"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="000-ye-vWa">
+                                <rect key="frame" x="20" y="94" width="374" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="000-ye-vWa" firstAttribute="leading" secondItem="59D-6q-ynv" secondAttribute="leading" constant="20" id="Lyh-EW-uHO"/>
+                            <constraint firstItem="59D-6q-ynv" firstAttribute="trailing" secondItem="I04-ai-ora" secondAttribute="trailing" constant="20" id="W4G-4X-WcI"/>
+                            <constraint firstItem="59D-6q-ynv" firstAttribute="bottom" secondItem="000-ye-vWa" secondAttribute="bottom" id="bqH-Q2-O5A"/>
+                            <constraint firstItem="I04-ai-ora" firstAttribute="top" secondItem="59D-6q-ynv" secondAttribute="top" id="giY-QO-HV8"/>
+                            <constraint firstItem="000-ye-vWa" firstAttribute="top" secondItem="I04-ai-ora" secondAttribute="bottom" id="qF3-Ih-435"/>
+                            <constraint firstItem="59D-6q-ynv" firstAttribute="trailing" secondItem="000-ye-vWa" secondAttribute="trailing" constant="20" id="s4t-ty-yQf"/>
+                            <constraint firstItem="I04-ai-ora" firstAttribute="leading" secondItem="59D-6q-ynv" secondAttribute="leading" constant="20" id="t3L-uJ-9eK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="59D-6q-ynv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="talk" id="AME-iN-29M"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="chatRoomTableView" destination="000-ye-vWa" id="5B2-Vg-DIa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKv-P0-Zw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--ChatVC-->
+        <scene sceneID="2yY-Ru-4nV">
+            <objects>
+                <tableViewController id="Y0Z-ne-EfA" customClass="ChatVC" customModule="WiTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vbM-Zb-22J">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Y0Z-ne-EfA" id="TxY-yQ-4qw"/>
+                            <outlet property="delegate" destination="Y0Z-ne-EfA" id="Obc-JG-xvX"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hye-tX-NwK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056.5217391304348" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="talk" width="48" height="48"/>
+    </resources>
+</document>
