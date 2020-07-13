@@ -7,12 +7,11 @@
 //
 
 import UIKit
-
+class ChatCellIds {
+   static let senderReuseId = "cell_id_chat_sender"
+    static let receiverReuseId = "cell_id_chat_receiver"
+}
 class ChatCell: UITableViewCell {
-    enum cellId:String {
-        case senderReuseId = "cell_id_chat_sender"
-        case receiverReuseId = "cell_id_chat_receiver"
-    }
     
     var bgView: UIView = {
         let v = UIView()
@@ -38,30 +37,18 @@ class ChatCell: UITableViewCell {
         return v
     }()
     
-    let padding: CGFloat = 16
-    let innerSpacing: CGFloat = 4
+    let padding: CGFloat = 8
+    let innerSpacing: CGFloat = 2
     let extraSpacing: CGFloat = 80
-    let secondaryPadding: CGFloat = 8
+    let secondaryPadding: CGFloat = 4
 
     
-    /*
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        if let id = reuseIdentifier {
-            if id == CellIds.senderCellId {
-                self.setupSendersCell()
-            }else {
-                self.setupReceiversCell()
-            }
-        }
-    }
-    */
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         if let id = reuseIdentifier {
             switch id {
-            case cellId.senderReuseId.rawValue: self.setupSenderCell()
-            case cellId.receiverReuseId.rawValue: self.setupReceiverCell()
+            case ChatCellIds.senderReuseId : self.setupSenderCell()
+            case ChatCellIds.receiverReuseId : self.setupReceiverCell()
             default: print("Error, ChatCell init, unknown ID")
             }
         }
@@ -81,8 +68,8 @@ class ChatCell: UITableViewCell {
         self.contentView.addSubview(bgView)
         NSLayoutConstraint.activate([
             bgView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: padding),
-            bgView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: padding),
-            bgView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: padding)
+            bgView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -padding),
+            bgView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -padding)
         ])
         bgView.layer.cornerRadius = 8
         bgView.backgroundColor = UIColor(displayP3Red: 0, green: 122/255, blue: 255/255, alpha: 1)
@@ -91,10 +78,10 @@ class ChatCell: UITableViewCell {
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: self.bgView.topAnchor, constant: innerSpacing),
             textView.leadingAnchor.constraint(equalTo: self.bgView.leadingAnchor, constant: innerSpacing),
-            textView.trailingAnchor.constraint(equalTo: self.bgView.trailingAnchor, constant: innerSpacing)
+            textView.trailingAnchor.constraint(equalTo: self.bgView.trailingAnchor, constant: -innerSpacing)
         ])
         
-        bgView.leadingAnchor.constraint(greaterThanOrEqualTo: self.contentView.leadingAnchor,constant: extraSpacing).isActive = true//이거 진짜 이해가 안가는데?????
+        bgView.leadingAnchor.constraint(greaterThanOrEqualTo: self.contentView.leadingAnchor, constant: extraSpacing).isActive = true//이거 진짜 이해가 안가는데?????
         
         textView.isScrollEnabled = false
         textView.isEditable = false
@@ -106,9 +93,9 @@ class ChatCell: UITableViewCell {
         
         self.bgView.addSubview(bottomLabel)
         NSLayoutConstraint.activate([
-            bottomLabel.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: -2),
+            bottomLabel.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 0),
             bottomLabel.leadingAnchor.constraint(equalTo: self.bgView.leadingAnchor, constant: secondaryPadding),
-            bottomLabel.bottomAnchor.constraint(equalTo: self.bgView.bottomAnchor, constant: secondaryPadding),
+            bottomLabel.bottomAnchor.constraint(equalTo: self.bgView.bottomAnchor, constant: -secondaryPadding),
             bottomLabel.trailingAnchor.constraint(equalTo: textView.trailingAnchor, constant: -secondaryPadding)
         ])
         

@@ -16,6 +16,7 @@
 		177CF78F24A224050018F354 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CF78D24A224050018F354 /* FriendCell.swift */; };
 		177CF79024A224050018F354 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177CF78E24A224050018F354 /* FriendCell.xib */; };
 		177CF79224A22A5F0018F354 /* MyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CF79124A22A5F0018F354 /* MyInfo.swift */; };
+		1781E40A24BCD9D000E34A6E /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E40924BCD9D000E34A6E /* Layer.swift */; };
 		178D67B324B2F88B008F5431 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178D67B224B2F88B008F5431 /* ProfileVC.swift */; };
 		17A9185024AC88A2006D386C /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9184F24AC88A2006D386C /* ChatListVC.swift */; };
 		17A9185424ACBAEF006D386C /* ChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9185224ACBAEF006D386C /* ChatListCell.swift */; };
@@ -42,6 +43,7 @@
 		177CF78D24A224050018F354 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		177CF78E24A224050018F354 /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		177CF79124A22A5F0018F354 /* MyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfo.swift; sourceTree = "<group>"; };
+		1781E40924BCD9D000E34A6E /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 		178D67B224B2F88B008F5431 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		17A9184F24AC88A2006D386C /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
 		17A9185224ACBAEF006D386C /* ChatListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCell.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				177CF79124A22A5F0018F354 /* MyInfo.swift */,
 				17A9185624ACC7AB006D386C /* Color.swift */,
+				1781E40924BCD9D000E34A6E /* Layer.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1781E40A24BCD9D000E34A6E /* Layer.swift in Sources */,
 				17EA4B6124A1F4C00010E3B7 /* AppDelegate.swift in Sources */,
 				17A9185424ACBAEF006D386C /* ChatListCell.swift in Sources */,
 				177CF79224A22A5F0018F354 /* MyInfo.swift in Sources */,
