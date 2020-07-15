@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_id_my_bubble" rowHeight="95" id="KGk-i7-Jjw" customClass="ChatMyBubble" customModule="WiTalk" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cpo-LU-oS2" userLabel="bgView">
+                        <rect key="frame" x="89" y="4" width="223" height="89"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="가시리 가시리잇고 나난 버리고 가시리잇고 나난 위 증즐가 태평성대" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Gb0-aE-Oud">
+                                <rect key="frame" x="2" y="2" width="219" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hz-G0-jsz">
+                                <rect key="frame" x="0.0" y="85" width="219" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="blue_chat_buble_color"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5hz-G0-jsz" secondAttribute="trailing" constant="4" id="3sw-9A-Mcm"/>
+                            <constraint firstItem="5hz-G0-jsz" firstAttribute="top" secondItem="Gb0-aE-Oud" secondAttribute="bottom" id="7Js-wM-Hw6"/>
+                            <constraint firstAttribute="bottom" secondItem="5hz-G0-jsz" secondAttribute="bottom" constant="4" id="Wao-eM-glR"/>
+                            <constraint firstItem="Gb0-aE-Oud" firstAttribute="top" secondItem="Cpo-LU-oS2" secondAttribute="top" constant="2" id="cYN-xg-OCh"/>
+                            <constraint firstItem="5hz-G0-jsz" firstAttribute="leading" secondItem="Cpo-LU-oS2" secondAttribute="leading" id="nz9-k9-ij3"/>
+                            <constraint firstAttribute="trailing" secondItem="Gb0-aE-Oud" secondAttribute="trailing" constant="2" id="tCN-mc-zuy"/>
+                            <constraint firstItem="Gb0-aE-Oud" firstAttribute="leading" secondItem="Cpo-LU-oS2" secondAttribute="leading" constant="2" id="w09-lh-ty8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Cpo-LU-oS2" secondAttribute="trailing" constant="8" id="K1E-j9-SES"/>
+                    <constraint firstItem="Cpo-LU-oS2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="a5m-40-h1c"/>
+                    <constraint firstItem="Cpo-LU-oS2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="80" id="cS1-Ip-6gv"/>
+                    <constraint firstAttribute="bottom" secondItem="Cpo-LU-oS2" secondAttribute="bottom" constant="2" id="tXY-yv-Mx5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bgView" destination="Cpo-LU-oS2" id="1uc-Yg-jdM"/>
+                <outlet property="bottomLabel" destination="5hz-G0-jsz" id="lpg-S2-MUc"/>
+                <outlet property="textView" destination="Gb0-aE-Oud" id="Olj-7i-nk3"/>
+            </connections>
+            <point key="canvasLocation" x="250.72463768115944" y="80.691964285714278"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="blue_chat_buble_color">
+            <color red="0.0" green="0.47799999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

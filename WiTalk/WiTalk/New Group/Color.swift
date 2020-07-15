@@ -12,4 +12,6 @@ extension UIColor {
     static var text_black: UIColor = UIColor(named: "text_color")!
     static var text_gray: UIColor = UIColor(named: "text_gray_color")!
     static var text_white: UIColor = UIColor(named: "text_white")!
+    static var blue_chat_bubble: UIColor = UIColor(named: "blue_chat_bubble_color")!
+    static var gray_chat_bubble: UIColor = UIColor(named: "gray_chat_bubble_color")!
 }

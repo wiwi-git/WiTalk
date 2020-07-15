@@ -22,6 +22,10 @@
 		17A9185424ACBAEF006D386C /* ChatListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9185224ACBAEF006D386C /* ChatListCell.swift */; };
 		17A9185524ACBAEF006D386C /* ChatListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A9185324ACBAEF006D386C /* ChatListCell.xib */; };
 		17A9185724ACC7AB006D386C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9185624ACC7AB006D386C /* Color.swift */; };
+		17BE1C7A24BF7CEA00D74282 /* ChatMyBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE1C7824BF7CEA00D74282 /* ChatMyBubble.swift */; };
+		17BE1C7B24BF7CEA00D74282 /* ChatMyBubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE1C7924BF7CEA00D74282 /* ChatMyBubble.xib */; };
+		17BE1C7E24BF806F00D74282 /* ChatYourBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE1C7C24BF806F00D74282 /* ChatYourBubble.swift */; };
+		17BE1C7F24BF806F00D74282 /* ChatYourBubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE1C7D24BF806F00D74282 /* ChatYourBubble.xib */; };
 		17EA4B6124A1F4C00010E3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */; };
 		17EA4B6324A1F4C00010E3B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4B6224A1F4C00010E3B7 /* SceneDelegate.swift */; };
 		17EA4B6824A1F4C00010E3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6624A1F4C00010E3B7 /* Main.storyboard */; };
@@ -49,6 +53,10 @@
 		17A9185224ACBAEF006D386C /* ChatListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListCell.swift; sourceTree = "<group>"; };
 		17A9185324ACBAEF006D386C /* ChatListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListCell.xib; sourceTree = "<group>"; };
 		17A9185624ACC7AB006D386C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		17BE1C7824BF7CEA00D74282 /* ChatMyBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMyBubble.swift; sourceTree = "<group>"; };
+		17BE1C7924BF7CEA00D74282 /* ChatMyBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatMyBubble.xib; sourceTree = "<group>"; };
+		17BE1C7C24BF806F00D74282 /* ChatYourBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatYourBubble.swift; sourceTree = "<group>"; };
+		17BE1C7D24BF806F00D74282 /* ChatYourBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatYourBubble.xib; sourceTree = "<group>"; };
 		17EA4B5D24A1F4C00010E3B7 /* WiTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17EA4B6224A1F4C00010E3B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +123,10 @@
 				17A9185324ACBAEF006D386C /* ChatListCell.xib */,
 				1748EAC724B884AF009854F4 /* ChatVC.swift */,
 				1748EAC924B884D2009854F4 /* ChatCell.swift */,
+				17BE1C7824BF7CEA00D74282 /* ChatMyBubble.swift */,
+				17BE1C7924BF7CEA00D74282 /* ChatMyBubble.xib */,
+				17BE1C7C24BF806F00D74282 /* ChatYourBubble.swift */,
+				17BE1C7D24BF806F00D74282 /* ChatYourBubble.xib */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -213,12 +225,14 @@
 			files = (
 				17EA4B7524A1F5510010E3B7 /* Friend.storyboard in Resources */,
 				17EA4B7924A1F5770010E3B7 /* MyPage.storyboard in Resources */,
+				17BE1C7F24BF806F00D74282 /* ChatYourBubble.xib in Resources */,
 				17EA4B6D24A1F4C20010E3B7 /* LaunchScreen.storyboard in Resources */,
 				177CF79024A224050018F354 /* FriendCell.xib in Resources */,
 				17EA4B6A24A1F4C20010E3B7 /* Assets.xcassets in Resources */,
 				17A9185524ACBAEF006D386C /* ChatListCell.xib in Resources */,
 				17EA4B7724A1F55F0010E3B7 /* Chat.storyboard in Resources */,
 				17EA4B6824A1F4C00010E3B7 /* Main.storyboard in Resources */,
+				17BE1C7B24BF7CEA00D74282 /* ChatMyBubble.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +245,7 @@
 			files = (
 				1781E40A24BCD9D000E34A6E /* Layer.swift in Sources */,
 				17EA4B6124A1F4C00010E3B7 /* AppDelegate.swift in Sources */,
+				17BE1C7A24BF7CEA00D74282 /* ChatMyBubble.swift in Sources */,
 				17A9185424ACBAEF006D386C /* ChatListCell.swift in Sources */,
 				177CF79224A22A5F0018F354 /* MyInfo.swift in Sources */,
 				17A9185024AC88A2006D386C /* ChatListVC.swift in Sources */,
@@ -238,6 +253,7 @@
 				177CF78B24A2222C0018F354 /* FriendVC.swift in Sources */,
 				17EA4B7B24A1FAAB0010E3B7 /* LoadingVC.swift in Sources */,
 				176DE24F24AF49EE0005ABA2 /* MyPageMyCell.swift in Sources */,
+				17BE1C7E24BF806F00D74282 /* ChatYourBubble.swift in Sources */,
 				1748EACB24B884D2009854F4 /* ChatCell.swift in Sources */,
 				1748EAC824B884AF009854F4 /* ChatVC.swift in Sources */,
 				178D67B324B2F88B008F5431 /* ProfileVC.swift in Sources */,

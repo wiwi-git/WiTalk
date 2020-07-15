@@ -60,8 +60,10 @@ class ChatCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
     
     func setupSenderCell() {
@@ -72,7 +74,7 @@ class ChatCell: UITableViewCell {
             bgView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -padding)
         ])
         bgView.layer.cornerRadius = 8
-        bgView.backgroundColor = UIColor(displayP3Red: 0, green: 122/255, blue: 255/255, alpha: 1)
+        bgView.backgroundColor = .blue_chat_bubble
         
         self.bgView.addSubview(textView)
         NSLayoutConstraint.activate([
@@ -102,7 +104,7 @@ class ChatCell: UITableViewCell {
         bottomLabel.font = UIFont.systemFont(ofSize: 10)
         bottomLabel.textColor = UIColor.white
         bottomLabel.textAlignment = .right
-        bottomLabel.text = "12:00 AM"
+        bottomLabel.text = ""
     }
     
     func setupReceiverCell(){
