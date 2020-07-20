@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nO5-gc-MfB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pci-7f-5Ox">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I04-ai-ora">
-                                <rect key="frame" x="20" y="44" width="374" height="50"/>
+                                <rect key="frame" x="20" y="88" width="374" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sdu-Qi-Uk6">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -61,7 +61,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="000-ye-vWa">
-                                <rect key="frame" x="20" y="94" width="374" height="719"/>
+                                <rect key="frame" x="20" y="138" width="374" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -77,7 +77,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="59D-6q-ynv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="talk" id="AME-iN-29M"/>
+                    <navigationItem key="navigationItem" id="rAp-Ct-EjH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chatRoomTableView" destination="000-ye-vWa" id="5B2-Vg-DIa"/>
@@ -85,12 +85,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKv-P0-Zw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="846" y="143"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="E44-ud-IRp">
             <objects>
-                <viewController id="nO5-gc-MfB" customClass="ChatVC" customModule="WiTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_id_chat_room" id="nO5-gc-MfB" customClass="ChatVC" customModule="WiTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6pL-mi-gIp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,7 +152,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nkh-8p-z3r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050.7246376811595" y="122.54464285714285"/>
+            <point key="canvasLocation" x="1960.8695652173915" y="122.54464285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c1S-Wn-A2r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pci-7f-5Ox" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="talk" id="AME-iN-29M"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ucQ-zt-bMc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Boq-kU-7la" kind="relationship" relationship="rootViewController" id="4tM-yn-B9b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXL-xN-iLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>

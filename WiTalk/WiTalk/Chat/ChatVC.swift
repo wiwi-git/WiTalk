@@ -7,36 +7,21 @@
 //
 
 import UIKit
-
+import Firebase
 class ChatVC: UIViewController {
+    static let sb_id = "sb_id_chat_room"
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textingAreaView:UIView!
-    struct TestForm {
-        let name:String
-        let msg:String
-        let time:String
-        var timeHidden = false
-    }
-    var testData:Array<TestForm> = [
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:00 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:00 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf  ", time: "12:00 am", timeHidden: false),
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:01 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:01 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl  ", time: "12:01 am", timeHidden: false),
-        TestForm(name:"you", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:02 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:02 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:03 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl fjdsdfklslkd fklsj kdlfjkaljskldfjalks dkljfklsjdfjlksjkfl ", time: "12:03 am", timeHidden: false),
-        TestForm(name:"you", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:04 am", timeHidden: true),
-        TestForm(name:"you", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:04 am", timeHidden: true),
-        TestForm(name:"you", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:04 am", timeHidden: true),
-        TestForm(name:"my", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:04 am", timeHidden: true),
-        TestForm(name:"you", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:04 am", timeHidden: true),
-        TestForm(name:"you", msg: "sdjfjijl fjdlj iljf slijlilji ", time: "12:04 am", timeHidden: true),
-    ]
+    
+    var destinationUserModel : UserModel?
+    var uid : String?
+    var chatRoomUid : String?
+    var comments:[ChatModel.Comment] = []
+    
+    public var destinationUid :String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,36 +40,128 @@ class ChatVC: UIViewController {
         self.textView.layer.borderColor = UIColor.lightGray.cgColor
         self.textView.layer.masksToBounds = true
         self.textView.layer.cornerRadius = 10
+        
+        uid = Auth.auth().currentUser?.uid
+        sendButton.addTarget(self, action: #selector(createRoom), for: .touchUpInside)
+        checkChatRoom()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
+        
+//        if let info = self.roomInfo {
+//            self.navigationItem.title = info.title
+//        }
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.tableView.scrollToRow(at: IndexPath(row: self.testData.count - 1, section: 0), at: .bottom, animated: true)
+    }
+    
+    @objc func createRoom(){
+        let createRoomInfo : Dictionary<String,Any> = [ "users" : [
+            uid!: true,
+            destinationUid! :true
+            ]
+        ]
+        
+        
+        if(chatRoomUid == nil){
+            // 방 생성 코드
+            self.sendButton.isEnabled = false
+            Database.database().reference().child("chatrooms").childByAutoId().setValue(createRoomInfo) { (error, ref) in
+                if error == nil {
+                    self.checkChatRoom()
+                }
+            }
+        } else {
+            let value :Dictionary<String,Any> = [
+                    "uid" : uid!,
+                    "message" : textView.text!
+                ]
+            
+            Database.database().reference().child("chatrooms").child(chatRoomUid!).child("comments").childByAutoId().setValue(value)
+        }
+    }
+    
+    @objc func checkChatRoom(){
+        Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value,with: { (datasnapshot) in
+            for item in datasnapshot.children.allObjects as! [DataSnapshot]{
+                if let chatRoomDic = item.value as? [String:Any] {
+                    let chatModel = ChatModel(JSON: chatRoomDic)
+                    if chatModel?.users[self.destinationUid!] == true {
+                        self.chatRoomUid = item.key
+                        self.sendButton.isEnabled = true
+                        self.getDestinationInfo()
+                    }
+                }
+            }
+        })
+    }
+    func getDestinationInfo(){
+        
+        Database.database().reference().child("users").child(self.destinationUid!).observeSingleEvent(of: DataEventType.value, with: { (datasnapshot) in
+            self.destinationUserModel = UserModel()
+            //self.destinationUserModel?.setValuesForKeys(datasnapshot.value as! [String:Any])
+            let dic = datasnapshot.value as! [String:Any]
+            
+            self.destinationUserModel?.name = dic["name"] as? String
+            self.destinationUserModel?.profileImageUrl = dic["profileImageUrl"] as? String
+            self.destinationUserModel?.uid = dic["uid"] as? String
+            
+            self.getMessageList()
+            
+        })
+    }
+    func getMessageList() {
+        
+        Database.database().reference().child("chatrooms").child(self.chatRoomUid!).child("comments").observe(DataEventType.value) { (snapshot) in
+            self.comments.removeAll()
+            
+            for item in snapshot.children.allObjects as! [DataSnapshot]{
+                let comment = ChatModel.Comment(JSON: item.value as! [String:Any])
+                self.comments.append(comment!)
+            }
+            self.tableView.reloadData()
+            
+        }
+    }
+    
 }
 extension ChatVC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.testData.count
+        return self.comments.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //if let cell = tableView.dequeueReusableCell(withIdentifier: ChatCellIds.senderReuseId, for: indexPath) as? ChatCell {
-        let item = testData[indexPath.row]
-        if item.name == "my" {
+        let item = comments[indexPath.row]
+        if item.uid == uid {
             if let cell = tableView.dequeueReusableCell(withIdentifier: ChatMyBubble.cell_id, for: indexPath) as? ChatMyBubble {
                 
-                cell.textView.text = item.msg
-                cell.bottomLabel.text = item.time
+                cell.textView.text = item.message
+                cell.bottomLabel.text = "00:00"
                 //cell.bottomLabel.isHidden = item.timeHidden
                 return cell
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: ChatYourBubble.cell_id, for: indexPath) as? ChatYourBubble {
-                cell.topLabel.text = item.name
-                cell.textView.text = item.msg
-                cell.bottomLabel.text = item.time
-                //cell.bottomLabel.isHidden = item.timeHidden
+                cell.topLabel.text =  destinationUserModel?.name
+                cell.textView.text = item.message
+                cell.bottomLabel.text = "00:00"
+                
                 return cell
             }
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     

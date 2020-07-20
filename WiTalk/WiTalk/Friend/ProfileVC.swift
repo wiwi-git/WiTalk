@@ -15,7 +15,7 @@ class ProfileVC: UIViewController {
         case chat
         case edit
     }
-    
+    var friendVC:FriendVC?
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
@@ -75,7 +75,16 @@ class ProfileVC: UIViewController {
     }
     
     func chatButtonAction() {
-        
+        if let info = self.userInfo {
+            let my = MyInfo.shared
+            let id = info.uniqueId
+            self.dismiss(animated: true) {
+                let storyboard = UIStoryboard(name: "Chat", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "sb_id_chat_room") as? ChatVC
+                vc?.destinationUid = id
+                self.friendVC?.navigationController?.pushViewController(vc!, animated: true)
+            }
+        }
     }
     
     func editButtonAction() {

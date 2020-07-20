@@ -7,6 +7,7 @@
 //
 //깃 테스트 
 import UIKit
+import Firebase
 
 class FriendVC: UIViewController {
 
@@ -17,11 +18,33 @@ class FriendVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.friendList = myInfo.friendList
+
         self.friendTableView.delegate = self
         self.friendTableView.dataSource = self
         self.friendTableView.register(FriendCell.createNib(), forCellReuseIdentifier: FriendCell.reuse_id)
+        
+        Database.database().reference().child("users").observe(DataEventType.value, with: { (snapshot) in
+            self.friendList.removeAll()
+            
+            let myUid = Auth.auth().currentUser?.uid
+            
+            for child in snapshot.children{
+                let fchild = child as! DataSnapshot
+                let dic = fchild.value as! [String : Any]
+                let person = Person(uniqueId: dic["uid"] as! String, name: dic["name"] as! String, imageUrl: dic["profileImageUrl"] as? String, statusMsg: "임시 상태 메시지")
+                
+                if person.uniqueId == myUid {
+                    self.myInfo.my = person
+                    continue
+                }
+                
+                self.friendList.append(person)
+            }
+            
+            DispatchQueue.main.async {
+                self.friendTableView.reloadData()
+            }
+        })
         
     }
     
@@ -109,6 +132,7 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
             }
             let userinfo = self.friendList[indexPath.row]
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: ProfileVC.sb_id) as? ProfileVC {
+                vc.friendVC = self
                 vc.modalPresentationStyle = .popover
                 vc.userInfo = userinfo
                 self.present(vc, animated: true, completion: nil)

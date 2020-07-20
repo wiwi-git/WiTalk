@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,9 @@
 		176DE24C24AF410F0005ABA2 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176DE24B24AF410F0005ABA2 /* MyPageVC.swift */; };
 		176DE24F24AF49EE0005ABA2 /* MyPageMyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176DE24E24AF49EE0005ABA2 /* MyPageMyCell.swift */; };
 		176DE25124AF4ADF0005ABA2 /* MyPageListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176DE25024AF4ADF0005ABA2 /* MyPageListItemCell.swift */; };
+		177BDB7624C5D7C60098B438 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177BDB7524C5D7C60098B438 /* LoginVC.swift */; };
+		177BDB7A24C5DA290098B438 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */; };
+		177BDB7C24C5DC7E0098B438 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */; };
 		177CF78B24A2222C0018F354 /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CF78A24A2222C0018F354 /* FriendVC.swift */; };
 		177CF78F24A224050018F354 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CF78D24A224050018F354 /* FriendCell.swift */; };
 		177CF79024A224050018F354 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177CF78E24A224050018F354 /* FriendCell.xib */; };
@@ -26,8 +29,8 @@
 		17BE1C7B24BF7CEA00D74282 /* ChatMyBubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE1C7924BF7CEA00D74282 /* ChatMyBubble.xib */; };
 		17BE1C7E24BF806F00D74282 /* ChatYourBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BE1C7C24BF806F00D74282 /* ChatYourBubble.swift */; };
 		17BE1C7F24BF806F00D74282 /* ChatYourBubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE1C7D24BF806F00D74282 /* ChatYourBubble.xib */; };
+		17BE1C8324C23EF500D74282 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BE1C8224C23EF500D74282 /* GoogleService-Info.plist */; };
 		17EA4B6124A1F4C00010E3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */; };
-		17EA4B6324A1F4C00010E3B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4B6224A1F4C00010E3B7 /* SceneDelegate.swift */; };
 		17EA4B6824A1F4C00010E3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6624A1F4C00010E3B7 /* Main.storyboard */; };
 		17EA4B6A24A1F4C20010E3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6924A1F4C20010E3B7 /* Assets.xcassets */; };
 		17EA4B6D24A1F4C20010E3B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6B24A1F4C20010E3B7 /* LaunchScreen.storyboard */; };
@@ -35,6 +38,7 @@
 		17EA4B7724A1F55F0010E3B7 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B7624A1F55F0010E3B7 /* Chat.storyboard */; };
 		17EA4B7924A1F5770010E3B7 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B7824A1F5770010E3B7 /* MyPage.storyboard */; };
 		17EA4B7B24A1FAAB0010E3B7 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4B7A24A1FAAB0010E3B7 /* LoadingVC.swift */; };
+		DA817185B6F044DDDA87DC0E /* Pods_WiTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96EEE71BC2F3AE25EB87F018 /* Pods_WiTalk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,9 @@
 		176DE24B24AF410F0005ABA2 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		176DE24E24AF49EE0005ABA2 /* MyPageMyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMyCell.swift; sourceTree = "<group>"; };
 		176DE25024AF4ADF0005ABA2 /* MyPageListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListItemCell.swift; sourceTree = "<group>"; };
+		177BDB7524C5D7C60098B438 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		177CF78A24A2222C0018F354 /* FriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
 		177CF78D24A224050018F354 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		177CF78E24A224050018F354 /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -57,9 +64,9 @@
 		17BE1C7924BF7CEA00D74282 /* ChatMyBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatMyBubble.xib; sourceTree = "<group>"; };
 		17BE1C7C24BF806F00D74282 /* ChatYourBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatYourBubble.swift; sourceTree = "<group>"; };
 		17BE1C7D24BF806F00D74282 /* ChatYourBubble.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatYourBubble.xib; sourceTree = "<group>"; };
+		17BE1C8224C23EF500D74282 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17EA4B5D24A1F4C00010E3B7 /* WiTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		17EA4B6224A1F4C00010E3B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		17EA4B6724A1F4C00010E3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17EA4B6924A1F4C20010E3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17EA4B6C24A1F4C20010E3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,6 +75,9 @@
 		17EA4B7624A1F55F0010E3B7 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		17EA4B7824A1F5770010E3B7 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		17EA4B7A24A1FAAB0010E3B7 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
+		96EEE71BC2F3AE25EB87F018 /* Pods_WiTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9E5E9044D7590BD82E0DB47 /* Pods-WiTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiTalk.debug.xcconfig"; path = "Target Support Files/Pods-WiTalk/Pods-WiTalk.debug.xcconfig"; sourceTree = "<group>"; };
+		AFFC3519D1E1587572EAAC1C /* Pods-WiTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiTalk.release.xcconfig"; path = "Target Support Files/Pods-WiTalk/Pods-WiTalk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA817185B6F044DDDA87DC0E /* Pods_WiTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +147,8 @@
 			children = (
 				17EA4B5F24A1F4C00010E3B7 /* WiTalk */,
 				17EA4B5E24A1F4C00010E3B7 /* Products */,
+				C10B3447A6B73BE0EC504CB9 /* Pods */,
+				FFA024560757ED93D12FF28E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,8 +163,8 @@
 		17EA4B5F24A1F4C00010E3B7 /* WiTalk */ = {
 			isa = PBXGroup;
 			children = (
+				17BE1C8224C23EF500D74282 /* GoogleService-Info.plist */,
 				17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */,
-				17EA4B6224A1F4C00010E3B7 /* SceneDelegate.swift */,
 				17EA4B7A24A1FAAB0010E3B7 /* LoadingVC.swift */,
 				17EA4B6624A1F4C00010E3B7 /* Main.storyboard */,
 				17EA4B6924A1F4C20010E3B7 /* Assets.xcassets */,
@@ -161,8 +174,28 @@
 				17A9185124AC88C8006D386C /* Chat */,
 				176DE24D24AF41290005ABA2 /* MyPage */,
 				176DE24A24AF40E60005ABA2 /* New Group */,
+				177BDB7524C5D7C60098B438 /* LoginVC.swift */,
+				177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */,
+				177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */,
 			);
 			path = WiTalk;
+			sourceTree = "<group>";
+		};
+		C10B3447A6B73BE0EC504CB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9E5E9044D7590BD82E0DB47 /* Pods-WiTalk.debug.xcconfig */,
+				AFFC3519D1E1587572EAAC1C /* Pods-WiTalk.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FFA024560757ED93D12FF28E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96EEE71BC2F3AE25EB87F018 /* Pods_WiTalk.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17EA4B7124A1F4C20010E3B7 /* Build configuration list for PBXNativeTarget "WiTalk" */;
 			buildPhases = (
+				92E1FB2863A459B705B69752 /* [CP] Check Pods Manifest.lock */,
 				17EA4B5924A1F4C00010E3B7 /* Sources */,
 				17EA4B5A24A1F4C00010E3B7 /* Frameworks */,
 				17EA4B5B24A1F4C00010E3B7 /* Resources */,
+				EF2B47607FD53B31AF186AC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,14 +264,58 @@
 				17EA4B6D24A1F4C20010E3B7 /* LaunchScreen.storyboard in Resources */,
 				177CF79024A224050018F354 /* FriendCell.xib in Resources */,
 				17EA4B6A24A1F4C20010E3B7 /* Assets.xcassets in Resources */,
+				177BDB7A24C5DA290098B438 /* RemoteConfigDefaults.plist in Resources */,
 				17A9185524ACBAEF006D386C /* ChatListCell.xib in Resources */,
 				17EA4B7724A1F55F0010E3B7 /* Chat.storyboard in Resources */,
+				17BE1C8324C23EF500D74282 /* GoogleService-Info.plist in Resources */,
 				17EA4B6824A1F4C00010E3B7 /* Main.storyboard in Resources */,
 				17BE1C7B24BF7CEA00D74282 /* ChatMyBubble.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92E1FB2863A459B705B69752 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WiTalk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF2B47607FD53B31AF186AC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WiTalk/Pods-WiTalk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WiTalk/Pods-WiTalk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WiTalk/Pods-WiTalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		17EA4B5924A1F4C00010E3B7 /* Sources */ = {
@@ -249,8 +328,8 @@
 				17A9185424ACBAEF006D386C /* ChatListCell.swift in Sources */,
 				177CF79224A22A5F0018F354 /* MyInfo.swift in Sources */,
 				17A9185024AC88A2006D386C /* ChatListVC.swift in Sources */,
-				17EA4B6324A1F4C00010E3B7 /* SceneDelegate.swift in Sources */,
 				177CF78B24A2222C0018F354 /* FriendVC.swift in Sources */,
+				177BDB7C24C5DC7E0098B438 /* SignUpVC.swift in Sources */,
 				17EA4B7B24A1FAAB0010E3B7 /* LoadingVC.swift in Sources */,
 				176DE24F24AF49EE0005ABA2 /* MyPageMyCell.swift in Sources */,
 				17BE1C7E24BF806F00D74282 /* ChatYourBubble.swift in Sources */,
@@ -258,6 +337,7 @@
 				1748EAC824B884AF009854F4 /* ChatVC.swift in Sources */,
 				178D67B324B2F88B008F5431 /* ProfileVC.swift in Sources */,
 				176DE24C24AF410F0005ABA2 /* MyPageVC.swift in Sources */,
+				177BDB7624C5D7C60098B438 /* LoginVC.swift in Sources */,
 				176DE25124AF4ADF0005ABA2 /* MyPageListItemCell.swift in Sources */,
 				177CF78F24A224050018F354 /* FriendCell.swift in Sources */,
 				17A9185724ACC7AB006D386C /* Color.swift in Sources */,
@@ -336,7 +416,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -402,11 +482,13 @@
 		};
 		17EA4B7224A1F4C20010E3B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9E5E9044D7590BD82E0DB47 /* Pods-WiTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q77G9L4656;
 				INFOPLIST_FILE = WiTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,11 +502,13 @@
 		};
 		17EA4B7324A1F4C20010E3B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFFC3519D1E1587572EAAC1C /* Pods-WiTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q77G9L4656;
 				INFOPLIST_FILE = WiTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MyPageVC: UIViewController {
     struct ListItem {
@@ -51,11 +52,11 @@ extension MyPageVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: MyPageMyCell.reuse_id, for: indexPath) as! MyPageMyCell
             let my = MyInfo.shared
-            cell.emailLabel.text = my.my.email
+            cell.emailLabel.text = my.my.uniqueId
             cell.nameLabel.text = my.my.name
             
             if let url = my.my.profileImageUrl {
-                //cell.profileImageView.image =
+                cell.profileImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "basic_profile"))
             } else {
                 cell.profileImageView.image = UIImage(named: "basic_profile")
             }

@@ -26,6 +26,12 @@ class ChatListVC: UIViewController {
         self.chatRoomTableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
 }
 extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -50,7 +56,8 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         if room.roomImageUrl == nil {
             cell.roomImageView.image = UIImage(named: "basic_profile")
         } else {
-            ///////
+            let url = URL(string: room.roomImageUrl!)
+            cell.roomImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "basic_profile"))
         }
         
         if room.headCount > 1 {
@@ -59,6 +66,15 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < self.roomList.count else { return }
+        let item = self.roomList[indexPath.row]
+        if let room = self.storyboard?.instantiateViewController(withIdentifier: ChatVC.sb_id) as? ChatVC {
+            //self.roomList
+            self.navigationController?.pushViewController(room, animated: true)
+        }
     }
 }
 

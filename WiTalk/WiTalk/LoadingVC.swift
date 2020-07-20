@@ -7,53 +7,58 @@
 //
 
 import UIKit
+import Firebase
+import SnapKit
 
 class LoadingVC: UIViewController {
-    private var loaded = false {
-        didSet {
-            if loaded { showMainPage() }
-        }
-    }
+    var box = UIImageView()
+    var remoteConfig: RemoteConfig!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        remoteConfig = RemoteConfig.remoteConfig()
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
+        remoteConfig.fetch(withExpirationDuration: 0) { (status, error) in
+            if status == .success {
+              print("Config fetched!")
+              self.remoteConfig.activate() { (error) in
+                  if let err = error { print(err.localizedDescription) }
+              }
+            } else {
+              print("Config not fetched")
+              print("Error: \(error?.localizedDescription ?? "No error available.")")
+            }
+            self.displayWelcome()
+        }
+
+        
+        self.view.addSubview(box)
+        box.snp.makeConstraints { (make) in
+            make.center.equalTo(self.view)
+        }
+        box.image = #imageLiteral(resourceName: "basic_profile")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        sleep(2)
-        inputTestInfo()
-        self.loaded = true
-    }
-    
-    func inputTestInfo() {
-        let my = MyInfo.shared
-        //내정보
-        my.my.name = "위대연"
-        my.my.email = "wiwi@wiwi.website"
-        my.my.profileImageUrl = nil
-        my.my.statusMsg = "자살마렵다."
+    func displayWelcome() {
+        let color = remoteConfig["splash_background"].stringValue!
+        let caps = remoteConfig["splash_message_caps"].boolValue
+        let message = remoteConfig["splash_message"].stringValue!
         
-        //친구정보
-        var friendList = Array<Person>()
-        for i in 0 ... 9 {
-            friendList.append(Person(name: "김\(i)돌", email: "email@wiwi.website", statusMsg: "\(i) \(i) 하다", imageUrl: nil))
+        if caps {
+            let alert = UIAlertController(title: "공지사항", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
+                exit(0)
+            }))
+            self.present(alert, animated: false, completion: nil)
+        } else {
+            let loginVc = self.storyboard?.instantiateViewController(withIdentifier: LoginVC.sb_id) as! LoginVC
+            loginVc.modalPresentationStyle = .fullScreen
+            self.present(loginVc, animated: false, completion: nil)
         }
-        my.friendList = friendList
-        
-        
-        var roomList = Array<Room>()
-        for i in 0 ... 9 {
-            roomList.append(Room(id: "\(i)", title: "chat\(i)방", headCount: i, imageUrl: nil, newMsg: "new - sjfkjkldjslkfjdkslj    dd", date: "am 10:11"))
-        }
-        my.roomList = roomList
-        
+        self.view.backgroundColor = UIColor(hexString: color)
     }
 
-    func showMainPage() {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "sb_tabbarcontroller") {
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: false, completion: nil)
-        }
-    }
 }
