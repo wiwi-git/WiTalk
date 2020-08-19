@@ -38,8 +38,9 @@ class LoadingVC: UIViewController {
         self.view.addSubview(box)
         box.snp.makeConstraints { (make) in
             make.center.equalTo(self.view)
+            make.height.width.equalTo(50)
         }
-        box.image = #imageLiteral(resourceName: "basic_profile")
+        box.image = #imageLiteral(resourceName: "iconImage")
     }
     
     func displayWelcome() {

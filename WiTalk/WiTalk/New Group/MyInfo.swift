@@ -13,6 +13,7 @@ class UserModel:NSObject {
     var name:String?
     var profileImageUrl:String?
     var uid:String?
+    var pushToken:String?
 }
 
 class ChatModel: Mappable {
@@ -28,62 +29,15 @@ class ChatModel: Mappable {
     public class Comment :Mappable{
         public var uid : String?
         public var message : String?
+        public var timestamp : Int?
         public required init?(map: Map) {
             
         }
         public  func mapping(map: Map) {
             uid <- map["uid"]
             message <- map["message"]
+            timestamp <- map["timestamp"]
         }
     }
     
-}
-
-class MyInfo {
-    static var shared = MyInfo()
-    private init() {
-        self.my = Person(uniqueId: "", name: "")
-    }
-    var my:Person
-    var roomList = Array<Room>()
-    var friendList = Array<Person>()
-    
-    func infoClear() {
-        self.my.name = ""
-        self.my.profileImageUrl = nil
-        self.roomList.removeAll()
-        self.friendList.removeAll()
-    }
-}
-
-class Room {
-    init(id:String, kind:Int, title:String = "", headCount:Int = 1, imageUrl:String? = nil, newMsg:String? = nil, date:String? = nil) {
-        self.id = id
-        self.kind = kind
-        self.title = title
-        self.headCount = headCount
-        self.roomImageUrl = imageUrl
-        self.roomNewMessage = newMsg
-        self.newDate = date
-    }
-    var id:String
-    var kind:Int
-    var title:String
-    var headCount:Int
-    var roomImageUrl:String?
-    var roomNewMessage:String?
-    var newDate:String?
-}
-
-class Person {
-    init(uniqueId:String,name:String, imageUrl:String? = nil, statusMsg:String = "") {
-        self.uniqueId = uniqueId
-        self.name = name
-        self.statusMsg = statusMsg
-        self.profileImageUrl = imageUrl
-    }
-    var uniqueId:String
-    var name:String
-    var statusMsg:String
-    var profileImageUrl:String?
 }

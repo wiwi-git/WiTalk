@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyMessageCell" rowHeight="65" id="EwD-0R-eFt" customClass="MyMessageCell" customModule="WiTalk" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EwD-0R-eFt" id="X66-2S-zwt">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_blue" translatesAutoresizingMaskIntoConstraints="NO" id="KRc-WP-V8y" userLabel="imageview">
+                        <rect key="frame" x="339" y="4" width="62" height="46"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-Er-FW4" userLabel="msgLabel">
+                        <rect key="frame" x="349" y="14" width="42" height="26"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000.00.00.00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhn-tk-nrt">
+                        <rect key="frame" x="321" y="50" width="80" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="Id7-T9-nbB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="UqT-Er-FW4" secondAttribute="trailing" constant="3" id="7DI-PC-JSj"/>
+                    <constraint firstItem="Jhn-tk-nrt" firstAttribute="top" secondItem="KRc-WP-V8y" secondAttribute="bottom" id="8fX-Re-Z0K"/>
+                    <constraint firstItem="KRc-WP-V8y" firstAttribute="top" secondItem="UqT-Er-FW4" secondAttribute="top" constant="-10" id="8kM-51-0Vn"/>
+                    <constraint firstAttribute="bottom" secondItem="Jhn-tk-nrt" secondAttribute="bottom" constant="4" id="OZt-oM-27m"/>
+                    <constraint firstItem="KRc-WP-V8y" firstAttribute="bottom" secondItem="UqT-Er-FW4" secondAttribute="bottom" constant="10" id="U8L-TA-Elc"/>
+                    <constraint firstItem="UqT-Er-FW4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X66-2S-zwt" secondAttribute="leadingMargin" constant="65" id="ZaW-4X-D87"/>
+                    <constraint firstItem="Jhn-tk-nrt" firstAttribute="trailing" secondItem="KRc-WP-V8y" secondAttribute="trailing" id="cK3-j5-5dH"/>
+                    <constraint firstItem="UqT-Er-FW4" firstAttribute="top" secondItem="X66-2S-zwt" secondAttribute="topMargin" constant="3" id="gFO-Tj-3RU"/>
+                    <constraint firstItem="KRc-WP-V8y" firstAttribute="leading" secondItem="UqT-Er-FW4" secondAttribute="leading" constant="-10" id="gTT-SW-W0r"/>
+                    <constraint firstItem="KRc-WP-V8y" firstAttribute="trailing" secondItem="UqT-Er-FW4" secondAttribute="trailing" constant="10" id="nz5-7P-Nzb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label_timeStamp" destination="Jhn-tk-nrt" id="fmd-cM-cMQ"/>
+                <outlet property="messageLabel" destination="UqT-Er-FW4" id="OKo-m9-TFk"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="83.370535714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="message_blue" width="11.5" height="9"/>
+    </resources>
+</document>

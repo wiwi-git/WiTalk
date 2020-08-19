@@ -2,16 +2,14 @@
 //  LoginVC.swift
 //  WiTalk
 //
-//  Created by 위대연 on 2020/07/20.
+//  Created by 위대연 on 2020/08/19.
 //  Copyright © 2020 위대연. All rights reserved.
 //
 
 import UIKit
 import Firebase
-import SnapKit
 
 class LoginVC: UIViewController {
-    
     static let sb_id = "sb_id_loginvc"
     @IBOutlet weak var emailTextField:UITextField!
     @IBOutlet weak var pwTextField:UITextField!
@@ -43,17 +41,38 @@ class LoginVC: UIViewController {
         signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(touchUpLoginButton(_:)), for: .touchUpInside)
         
+        self.emailTextField.delegate = self
+        self.pwTextField.delegate = self
+        
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "sb_tabbarcontroller") as! UITabBarController
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: PeopleViewController.sb_id_tabbar) as! UITabBarController
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
-            }
-        }
+                
+                let uid = Auth.auth().currentUser?.uid
+                var token:String = ""
+                
+                InstanceID.instanceID().instanceID { (result, error) in
+                  if let error = error {
+                    print("Error fetching remote instance ID: \(error)")
+                  } else if let result = result {
+                    print("Remote instance ID token: \(result.token)")
+                    token = result.token
+                    Database.database().reference().child("users").child(uid!).updateChildValues(["pushToken" : token])
+                  }
+                }
+            }// user != nil
+        }//Auth addStateDidChangeListener
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     @objc func touchUpSignUpButton(_ sender:UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "sb_id_signupvc") as! SignUpVC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: SignUpVC.sb_id) as! SignUpVC
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
@@ -70,5 +89,9 @@ class LoginVC: UIViewController {
         }
     }
 
-
+}
+extension LoginVC : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+    }
 }

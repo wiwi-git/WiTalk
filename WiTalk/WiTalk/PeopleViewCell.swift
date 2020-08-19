@@ -1,14 +1,14 @@
 //
-//  FriendCell.swift
+//  PeopleViewCell.swift
 //  WiTalk
 //
-//  Created by 위대연 on 2020/06/23.
+//  Created by 위대연 on 2020/08/20.
 //  Copyright © 2020 위대연. All rights reserved.
 //
 
 import UIKit
 
-class FriendCell: UITableViewCell {
+class PeopleViewCell: UITableViewCell {
     static let reuse_id = "cell_friend_list"
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -17,7 +17,7 @@ class FriendCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.profileImageView.layer.cornerRadius = 10
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height/2
         self.profileImageView.layer.masksToBounds = true
         self.profileImageView.tintColor = .green_profile
     }
@@ -28,13 +28,7 @@ class FriendCell: UITableViewCell {
         self.nameLabel.text = nil
         self.statusMsgLabel.text = nil
     }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-//
+   
     class func createNib() -> UINib {
         return UINib(nibName: self.identifier, bundle: nil)
     }
