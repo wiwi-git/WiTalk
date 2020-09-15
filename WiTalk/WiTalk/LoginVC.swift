@@ -15,16 +15,13 @@ class LoginVC: UIViewController {
     @IBOutlet weak var pwTextField:UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     
     let remoteConfig = RemoteConfig.remoteConfig()
     var color: String!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        do {try Auth.auth().signOut()}
-        catch let err {
-            print("err \(err.localizedDescription)")
-        }
         
         let statusBar = UIView()
         self.view.addSubview(statusBar)
@@ -32,11 +29,25 @@ class LoginVC: UIViewController {
             maker.left.right.top.equalTo(self.view)
             maker.height.equalTo(20)
         }
-        color = remoteConfig.configValue(forKey: "splash_background").stringValue
+//        color = remoteConfig.configValue(forKey: "splash_background").stringValue
+        logoImageView.layer.cornerRadius = 20
+        logoImageView.layer.masksToBounds = true
+        loginButton.layer.cornerRadius = 20
+        loginButton.layer.masksToBounds = true
+        signUpButton.layer.cornerRadius = 20
+        signUpButton.layer.masksToBounds = true
         
-        statusBar.backgroundColor = UIColor(hexString: color)
-        loginButton.backgroundColor = UIColor(hexString: color)
-        signUpButton.backgroundColor = UIColor(hexString: color)
+        
+        statusBar.backgroundColor = UIColor.clear
+        loginButton.backgroundColor = UIColor.clear
+        signUpButton.backgroundColor = UIColor.clear
+        
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        signUpButton.layer.borderWidth = 1
+        signUpButton.layer.borderColor = UIColor.systemBlue.cgColor
+        
         
         signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(touchUpLoginButton(_:)), for: .touchUpInside)

@@ -19,17 +19,26 @@ class UserModel:NSObject {
 class ChatModel: Mappable {
     public var users :Dictionary<String,Bool> = [:] //채팅방에 참여한 사람들
     public var comments :Dictionary<String,Comment> = [:] //채팅방의 대화내용
+    public var data = Data()
+    
     required init?(map: Map) {
         
     }
+    
     func mapping(map: Map) {
         users <- map["users"]
         comments <- map["comments"]
+        data <- map["data"]
     }
+    
     public class Comment :Mappable{
         public var uid : String?
         public var message : String?
         public var timestamp : Int?
+        
+        init() {
+            
+        }
         public required init?(map: Map) {
             
         }
@@ -40,4 +49,21 @@ class ChatModel: Mappable {
         }
     }
     
+    class Data : Mappable {
+        init() { }
+        
+        required init?(map: Map) { }
+        
+        var title : String?
+        var text : String?
+        
+        func mapping(map: Map) {
+            title <- map["title"]
+            text <- map["text"]
+            
+        }
+    }
+    
 }
+
+

@@ -49,9 +49,12 @@ class PeopleViewController: UIViewController {
                 userModel.uid = dic["uid"] as? String
                 
                 //userModel.setValuesForKeys()
-                
-                if userModel.uid == myUid {
+                if userModel.uid == nil {
+                    continue
+                }
+                if userModel.uid! == myUid! {
                     self.myInfo = userModel
+                    print("내 아이디야")
                     continue
                 }
                 
@@ -134,7 +137,8 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 1 {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "sb_id_chatvc") as? ChatViewController
+            let storyboard = UIStoryboard(name: "ChatBoard", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "sb_id_chatvc") as? ChatViewController
             vc?.destinationUid = self.friendArray[indexPath.row].uid
             self.navigationController?.pushViewController(vc!, animated: true)
         }

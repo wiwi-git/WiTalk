@@ -19,7 +19,7 @@ class PeopleViewCell: UITableViewCell {
         super.awakeFromNib()
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height/2
         self.profileImageView.layer.masksToBounds = true
-        self.profileImageView.tintColor = .green_profile
+        self.profileImageView.tintColor =  UIColor.systemBlue
     }
     
     override func prepareForReuse() {

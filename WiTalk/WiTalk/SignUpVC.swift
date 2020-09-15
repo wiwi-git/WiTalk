@@ -69,6 +69,8 @@ class SignUpVC: UIViewController {
             guard let uid = result?.user.uid else { return }
             let dataBaseRef = Database.database().reference()
             let storegeRef = Storage.storage().reference()
+            result?.user.createProfileChangeRequest().displayName = name
+            result?.user.createProfileChangeRequest().commitChanges(completion: nil)
             
             if let image = image {
                 //프로필 이미지 있을경우

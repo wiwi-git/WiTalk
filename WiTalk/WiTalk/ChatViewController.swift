@@ -255,7 +255,7 @@ extension ChatViewController: UITableViewDataSource,UITableViewDelegate {
             }
             
             
-            let url = URL(string:(self.destinationUserModel?.profileImageUrl)!)
+//            let url = URL(string:(self.destinationUserModel?.profileImageUrl)!)
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.width/2
             cell.profileImageView.clipsToBounds = true
             /*

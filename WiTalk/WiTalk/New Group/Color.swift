@@ -8,7 +8,7 @@
 
 import UIKit
 extension UIColor {
-    static var green_profile: UIColor = UIColor(named: "green_profile_color")!
+//    static var green_profile: UIColor = UIColor(named: "green_profile_color")!
     static var text_black: UIColor = UIColor(named: "text_color")!
     static var text_gray: UIColor = UIColor(named: "text_gray_color")!
     static var text_white: UIColor = UIColor(named: "text_white")!

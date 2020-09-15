@@ -40,7 +40,7 @@ class LoadingVC: UIViewController {
             make.center.equalTo(self.view)
             make.height.width.equalTo(50)
         }
-        box.image = #imageLiteral(resourceName: "iconImage")
+        box.image = #imageLiteral(resourceName: "Icon-App-83.5x83.5")
     }
     
     func displayWelcome() {

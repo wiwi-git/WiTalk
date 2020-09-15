@@ -62,8 +62,9 @@ class ChatRoomsViewController: UIViewController {
 }
 extension ChatRoomsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chatRooms.count
     }
@@ -105,6 +106,7 @@ extension ChatRoomsViewController : UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let destinationUid = self.destinationUsers[indexPath.row]

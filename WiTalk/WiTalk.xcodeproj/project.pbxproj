@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1717EA4824ED95AA00EF9B6A /* PeopleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1717EA4624ED95AA00EF9B6A /* PeopleViewCell.swift */; };
 		1717EA4924ED95AA00EF9B6A /* PeopleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1717EA4724ED95AA00EF9B6A /* PeopleViewCell.xib */; };
+		172385E6250A475D00AE42E5 /* ChatBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172385E5250A475D00AE42E5 /* ChatBoard.storyboard */; };
+		172385E8250A4CE800AE42E5 /* FriendBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */; };
 		177BDB7A24C5DA290098B438 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */; };
 		177BDB7C24C5DC7E0098B438 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */; };
 		177CF79224A22A5F0018F354 /* MyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CF79124A22A5F0018F354 /* MyInfo.swift */; };
@@ -23,6 +25,7 @@
 		17A9425324ED592200EB1F05 /* DestinationMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9425224ED592200EB1F05 /* DestinationMessageCell.swift */; };
 		17A9425524ED592B00EB1F05 /* DestinationMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A9425424ED592B00EB1F05 /* DestinationMessageCell.xib */; };
 		17BE1C8324C23EF500D74282 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BE1C8224C23EF500D74282 /* GoogleService-Info.plist */; };
+		17D5038B2510D1AA008D6966 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5038A2510D1AA008D6966 /* MyPageViewController.swift */; };
 		17EA4B6124A1F4C00010E3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */; };
 		17EA4B6824A1F4C00010E3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6624A1F4C00010E3B7 /* Main.storyboard */; };
 		17EA4B6A24A1F4C20010E3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6924A1F4C20010E3B7 /* Assets.xcassets */; };
@@ -35,6 +38,8 @@
 		1717EA4524ED7E9700EF9B6A /* WiTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WiTalk.entitlements; sourceTree = "<group>"; };
 		1717EA4624ED95AA00EF9B6A /* PeopleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewCell.swift; sourceTree = "<group>"; };
 		1717EA4724ED95AA00EF9B6A /* PeopleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleViewCell.xib; sourceTree = "<group>"; };
+		172385E5250A475D00AE42E5 /* ChatBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatBoard.storyboard; sourceTree = "<group>"; };
+		172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendBoard.storyboard; sourceTree = "<group>"; };
 		177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		177CF79124A22A5F0018F354 /* MyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfo.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		17A9425224ED592200EB1F05 /* DestinationMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationMessageCell.swift; sourceTree = "<group>"; };
 		17A9425424ED592B00EB1F05 /* DestinationMessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DestinationMessageCell.xib; sourceTree = "<group>"; };
 		17BE1C8224C23EF500D74282 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		17D5038A2510D1AA008D6966 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		17EA4B5D24A1F4C00010E3B7 /* WiTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WiTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17EA4B6724A1F4C00010E3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +131,9 @@
 				17A9425424ED592B00EB1F05 /* DestinationMessageCell.xib */,
 				1717EA4624ED95AA00EF9B6A /* PeopleViewCell.swift */,
 				1717EA4724ED95AA00EF9B6A /* PeopleViewCell.xib */,
+				172385E5250A475D00AE42E5 /* ChatBoard.storyboard */,
+				172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */,
+				17D5038A2510D1AA008D6966 /* MyPageViewController.swift */,
 			);
 			path = WiTalk;
 			sourceTree = "<group>";
@@ -211,7 +220,9 @@
 				17EA4B6A24A1F4C20010E3B7 /* Assets.xcassets in Resources */,
 				1717EA4924ED95AA00EF9B6A /* PeopleViewCell.xib in Resources */,
 				177BDB7A24C5DA290098B438 /* RemoteConfigDefaults.plist in Resources */,
+				172385E8250A4CE800AE42E5 /* FriendBoard.storyboard in Resources */,
 				17BE1C8324C23EF500D74282 /* GoogleService-Info.plist in Resources */,
+				172385E6250A475D00AE42E5 /* ChatBoard.storyboard in Resources */,
 				17A9425524ED592B00EB1F05 /* DestinationMessageCell.xib in Resources */,
 				17EA4B6824A1F4C00010E3B7 /* Main.storyboard in Resources */,
 			);
@@ -275,6 +286,7 @@
 				177BDB7C24C5DC7E0098B438 /* SignUpVC.swift in Sources */,
 				17A9425324ED592200EB1F05 /* DestinationMessageCell.swift in Sources */,
 				17EA4B7B24A1FAAB0010E3B7 /* LoadingVC.swift in Sources */,
+				17D5038B2510D1AA008D6966 /* MyPageViewController.swift in Sources */,
 				17A9424D24ED584D00EB1F05 /* ChatRoomViewController.swift in Sources */,
 				17A9424B24ED561100EB1F05 /* ChatViewController.swift in Sources */,
 				17A9185724ACC7AB006D386C /* Color.swift in Sources */,
