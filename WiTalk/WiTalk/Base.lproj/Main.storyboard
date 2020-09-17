@@ -150,9 +150,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="P7G-bR-APM"/>
                                         </constraints>
-                                        <state key="normal" title="Sign-Up">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Sign-Up"/>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-2R-iMt" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="116" width="374" height="40"/>
@@ -176,7 +174,7 @@
                                             <constraint firstAttribute="height" constant="40" id="SNe-8o-uRm"/>
                                         </constraints>
                                         <state key="normal" title="Cancel">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sWw-At-ZlI" customClass="HoshiTextField" customModule="TextFieldEffects">
@@ -341,7 +339,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcd-pf-vQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-302" y="248"/>
+            <point key="canvasLocation" x="-8" y="248"/>
         </scene>
         <!--FriendBoard-->
         <scene sceneID="hKR-m2-79K">
@@ -351,7 +349,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPi-LB-m9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-533" y="248"/>
+            <point key="canvasLocation" x="-463" y="248"/>
         </scene>
     </scenes>
     <resources>

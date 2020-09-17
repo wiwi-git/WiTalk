@@ -11,6 +11,7 @@
 		1717EA4924ED95AA00EF9B6A /* PeopleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1717EA4724ED95AA00EF9B6A /* PeopleViewCell.xib */; };
 		172385E6250A475D00AE42E5 /* ChatBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172385E5250A475D00AE42E5 /* ChatBoard.storyboard */; };
 		172385E8250A4CE800AE42E5 /* FriendBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */; };
+		17765DA0251347E700A9BD11 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17765D9F251347E700A9BD11 /* LocalAuthentication.framework */; };
 		177BDB7A24C5DA290098B438 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */; };
 		177BDB7C24C5DC7E0098B438 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */; };
 		177CF79224A22A5F0018F354 /* MyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CF79124A22A5F0018F354 /* MyInfo.swift */; };
@@ -40,6 +41,7 @@
 		1717EA4724ED95AA00EF9B6A /* PeopleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleViewCell.xib; sourceTree = "<group>"; };
 		172385E5250A475D00AE42E5 /* ChatBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatBoard.storyboard; sourceTree = "<group>"; };
 		172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendBoard.storyboard; sourceTree = "<group>"; };
+		17765D9F251347E700A9BD11 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		177CF79124A22A5F0018F354 /* MyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfo.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17765DA0251347E700A9BD11 /* LocalAuthentication.framework in Frameworks */,
 				DA817185B6F044DDDA87DC0E /* Pods_WiTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +153,7 @@
 		FFA024560757ED93D12FF28E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17765D9F251347E700A9BD11 /* LocalAuthentication.framework */,
 				96EEE71BC2F3AE25EB87F018 /* Pods_WiTalk.framework */,
 			);
 			name = Frameworks;
@@ -166,7 +170,7 @@
 				17EA4B5924A1F4C00010E3B7 /* Sources */,
 				17EA4B5A24A1F4C00010E3B7 /* Frameworks */,
 				17EA4B5B24A1F4C00010E3B7 /* Resources */,
-				4E33675558EF6CE46FCCB781 /* [CP] Embed Pods Frameworks */,
+				8C7553C5FD1B8718FBBA0307 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,7 +235,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E33675558EF6CE46FCCB781 /* [CP] Embed Pods Frameworks */ = {
+		8C7553C5FD1B8718FBBA0307 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

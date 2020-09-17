@@ -29,7 +29,7 @@ class LoginVC: UIViewController {
             maker.left.right.top.equalTo(self.view)
             maker.height.equalTo(20)
         }
-//        color = remoteConfig.configValue(forKey: "splash_background").stringValue
+        //        color = remoteConfig.configValue(forKey: "splash_background").stringValue
         logoImageView.layer.cornerRadius = 20
         logoImageView.layer.masksToBounds = true
         loginButton.layer.cornerRadius = 20
@@ -57,6 +57,7 @@ class LoginVC: UIViewController {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
+                // 메인화면을 띄움 and 토큰을 받아온다.
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: PeopleViewController.sb_id_tabbar) as! UITabBarController
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
@@ -65,13 +66,13 @@ class LoginVC: UIViewController {
                 var token:String = ""
                 
                 InstanceID.instanceID().instanceID { (result, error) in
-                  if let error = error {
-                    print("Error fetching remote instance ID: \(error)")
-                  } else if let result = result {
-                    print("Remote instance ID token: \(result.token)")
-                    token = result.token
-                    Database.database().reference().child("users").child(uid!).updateChildValues(["pushToken" : token])
-                  }
+                    if let error = error {
+                        print("Error fetching remote instance ID: \(error)")
+                    } else if let result = result {
+                        print("Remote instance ID token: \(result.token)")
+                        token = result.token
+                        Database.database().reference().child("users").child(uid!).updateChildValues(["pushToken" : token])
+                    }
                 }
             }// user != nil
         }//Auth addStateDidChangeListener
@@ -96,10 +97,27 @@ class LoginVC: UIViewController {
                 let alert = UIAlertController(title: "ERROR", message: err.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+            } else {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: PeopleViewController.sb_id_tabbar) as! UITabBarController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                
+                let uid = Auth.auth().currentUser?.uid
+                var token:String = ""
+                
+                InstanceID.instanceID().instanceID { (result, error) in
+                    if let error = error {
+                        print("Error fetching remote instance ID: \(error)")
+                    } else if let result = result {
+                        print("Remote instance ID token: \(result.token)")
+                        token = result.token
+                        Database.database().reference().child("users").child(uid!).updateChildValues(["pushToken" : token])
+                    }
+                }
             }
         }
     }
-
+    
 }
 extension LoginVC : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

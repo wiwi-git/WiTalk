@@ -21,6 +21,8 @@ class SignUpVC: UIViewController {
     
     @IBOutlet weak var imageView:UIImageView!
     
+    var activityIndicator:UIActivityIndicatorView!
+    
     let remoteConfig = RemoteConfig.remoteConfig()
     var color: String!
     
@@ -32,11 +34,22 @@ class SignUpVC: UIViewController {
             maker.left.right.top.equalTo(self.view)
             maker.height.equalTo(20)
         }
-        self.color = remoteConfig.configValue(forKey: "splash_background").stringValue
         
-        statusBar.backgroundColor = UIColor(hexString: self.color)
-        self.signUpButton.backgroundColor = UIColor(hexString: self.color)
-        self.cancelButton.backgroundColor = UIColor(hexString: self.color)
+        self.signUpButton.backgroundColor = UIColor.clear
+        self.cancelButton.backgroundColor = UIColor.clear
+        
+        self.signUpButton.layer.cornerRadius = 20
+        self.cancelButton.layer.cornerRadius = 20
+        
+        self.signUpButton.layer.masksToBounds = true
+        self.cancelButton.layer.masksToBounds = true
+        
+        self.signUpButton.layer.borderColor = UIColor.systemBlue.cgColor
+        self.cancelButton.layer.borderColor = UIColor.systemBlue.cgColor
+        
+        self.signUpButton.layer.borderWidth = 1
+        self.cancelButton.layer.borderWidth = 1
+        
         
         self.signUpButton.addTarget(self, action: #selector(touchUpButtons(_:)), for: .touchUpInside)
         self.signUpButton.tag = 1
@@ -44,6 +57,14 @@ class SignUpVC: UIViewController {
         
         self.imageView.isUserInteractionEnabled = true
         self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imagePicker)))
+        
+        
+        self.activityIndicator = UIActivityIndicatorView(style: .gray)
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator.snp.makeConstraints { (maker) in
+            maker.centerX.centerY.equalTo(self.view)
+        }
+        activityIndicator.isHidden = true
     }
     
     @objc func touchUpButtons(_ btn:UIButton) {
@@ -53,6 +74,7 @@ class SignUpVC: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
     @objc func imagePicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -62,6 +84,9 @@ class SignUpVC: UIViewController {
     }
     
     func signUp(email:String,name:String,pass:String,image:UIImage?){
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
+        
         Auth.auth().createUser(withEmail: email, password: pass) { (result, error) in
             if let err = error {
                 print("ERRor createUser " + err.localizedDescription)
@@ -84,7 +109,13 @@ class SignUpVC: UIViewController {
                             if let err = error {
                                 print("ERROR, Error, SignUpViewcontroller, SignUp, downloadUrl, \(err.localizedDescription)")
                             }
-                            let value:[String:Any] = url != nil ? ["name":name, "profileImageUrl": url!.absoluteString, "uid":Auth.auth().currentUser?.uid] : ["name":name, "uid":Auth.auth().currentUser?.uid]
+                            let currentUser = Auth.auth().currentUser!
+                            let value:[String:Any] = url != nil ?
+                                [ "name":name,
+                                "profileImageUrl": url!.absoluteString,
+                                "uid":currentUser.uid ] :
+                                [ "name":name, "uid":currentUser.uid ]
+                            
                             dataBaseRef.child("users").child(uid).setValue(value) { (error, ref) in
                                 if let err = error {
                                     print("ERROR, Error, SignUpViewcontroller, SignUp, database setValue \(err.localizedDescription)")
@@ -95,6 +126,12 @@ class SignUpVC: UIViewController {
                     }
                 } else {
                     print("ERROR, SignUpViewcontroller, SignUp, jpg데이터 변환 실패")
+                    dataBaseRef.child("users").child(uid).setValue(["name" : name, "uid":Auth.auth().currentUser?.uid]) { (error, ref) in
+                        if let err = error {
+                            print("ERROR, Error, SignUpViewcontroller, SignUp, database setValue \(err.localizedDescription)")
+                        }
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }
             } else {
                 //프로필 이미지 없을경우
@@ -105,6 +142,9 @@ class SignUpVC: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                 }
             }
+            
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
         }//createUser
     }
     
