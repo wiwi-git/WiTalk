@@ -13,9 +13,11 @@ class DestinationMessageCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var bubbleImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.bubbleImageView.tintColor = .you_chat_bubble
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

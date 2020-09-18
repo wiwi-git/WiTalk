@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class MyPageViewController: UIViewController {
     @IBOutlet weak var logoutButton:UIButton!
+    @IBOutlet weak var activateTouchIdSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,8 @@ class MyPageViewController: UIViewController {
         self.logoutButton.layer.cornerRadius = 20
         self.logoutButton.layer.masksToBounds = true
         self.logoutButton.addTarget(self, action: #selector(logout), for: .touchUpInside)
+        let isDeactivateTouchID = UserDefaults.standard.bool(forKey: UserDefaultsKey.isDeactivateTouchID)
+        self.activateTouchIdSwitch.setOn(!isDeactivateTouchID, animated: false)
     }
     
     @objc func logout() {
@@ -29,5 +32,9 @@ class MyPageViewController: UIViewController {
         catch let err {
             print("err \(err.localizedDescription)")
         }
+    }
+    
+    @IBAction func valueChangedTouchIDSwitch(_ sender: UISwitch) {
+        UserDefaults.standard.set(!sender.isOn, forKey: UserDefaultsKey.isDeactivateTouchID)
     }
 }

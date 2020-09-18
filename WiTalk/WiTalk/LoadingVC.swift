@@ -69,7 +69,8 @@ class LoadingVC: UIViewController {
             }))
             self.present(alert, animated: false, completion: nil)
         } else {
-            if Auth.auth().currentUser != nil {
+            if !UserDefaults.standard.bool(forKey: UserDefaultsKey.isDeactivateTouchID) &&
+                Auth.auth().currentUser != nil {
                 // 이전 로그인캐시가 남아 있다?
                 let authContext = LAContext()
                 var error: NSError?

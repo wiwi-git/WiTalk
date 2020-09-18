@@ -11,6 +11,10 @@ import UIKit
 class MyMessageCell: UITableViewCell {
     @IBOutlet weak var label_timeStamp: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var bubbleImageView: UIImageView!
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.bubbleImageView.tintColor = .my_chat_bubble
+    }
 }

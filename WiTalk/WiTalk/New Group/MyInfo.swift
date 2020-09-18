@@ -9,6 +9,10 @@
 import Foundation
 import ObjectMapper
 
+class UserDefaultsKey:NSObject {
+    static let isDeactivateTouchID:String = "key_isDeactivateTouchId"
+}
+
 class UserModel:NSObject {
     var name:String?
     var profileImageUrl:String?

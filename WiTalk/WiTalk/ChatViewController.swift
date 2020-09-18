@@ -46,7 +46,7 @@ class ChatViewController: UIViewController {
         self.tableView.register(UINib(nibName: "DestinationMessageCell", bundle: nil), forCellReuseIdentifier: "DestinationMessageCell")
         
         self.textView.text = ""
-        self.textingAreaView.layer.addBorder([UIRectEdge.top], color: .blue_chat_bubble, width: 1)
+        self.textingAreaView.layer.addBorder([UIRectEdge.top], color: .systemBlue, width: 1)
         self.textingAreaView.layer.masksToBounds = true
         
         self.textView.layer.borderWidth = 1
