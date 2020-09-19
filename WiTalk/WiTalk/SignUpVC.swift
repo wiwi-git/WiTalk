@@ -58,8 +58,16 @@ class SignUpVC: UIViewController {
         self.imageView.isUserInteractionEnabled = true
         self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imagePicker)))
         
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+                self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+            } else {
+                self.activityIndicator = UIActivityIndicatorView(style: .gray)
+            }
+        } else {
+            self.activityIndicator = UIActivityIndicatorView(style: .gray)
+        }
         
-        self.activityIndicator = UIActivityIndicatorView(style: .gray)
         self.view.addSubview(activityIndicator)
         self.activityIndicator.snp.makeConstraints { (maker) in
             maker.centerX.centerY.equalTo(self.view)
@@ -100,8 +108,9 @@ class SignUpVC: UIViewController {
             if let image = image {
                 //프로필 이미지 있을경우
                 if let jpgImageData = image.jpegData(compressionQuality: 0.5) {
-                    let riversRef = storegeRef.child("usersImage/\(uid)")
+                    let riversRef = storegeRef.child("usersImage/\(uid).jpg")
                     _ = riversRef.putData(jpgImageData, metadata: nil) { (metadata, error) in
+                        
                         if let err = error {
                             print("ERROR, Error, SignUpViewcontroller, SignUp, putData, \(err.localizedDescription)")
                         }
@@ -120,6 +129,8 @@ class SignUpVC: UIViewController {
                                 if let err = error {
                                     print("ERROR, Error, SignUpViewcontroller, SignUp, database setValue \(err.localizedDescription)")
                                 }
+                                self.activityIndicator.isHidden = true
+                                self.activityIndicator.stopAnimating()
                                 self.dismiss(animated: true, completion: nil)
                             }
                         }
@@ -130,6 +141,8 @@ class SignUpVC: UIViewController {
                         if let err = error {
                             print("ERROR, Error, SignUpViewcontroller, SignUp, database setValue \(err.localizedDescription)")
                         }
+                        self.activityIndicator.isHidden = true
+                        self.activityIndicator.stopAnimating()
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
@@ -139,20 +152,20 @@ class SignUpVC: UIViewController {
                     if let err = error {
                         print("ERROR, Error, SignUpViewcontroller, SignUp, database setValue \(err.localizedDescription)")
                     }
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
                     self.dismiss(animated: true, completion: nil)
                 }
             }
-            
-            self.activityIndicator.isHidden = true
-            self.activityIndicator.stopAnimating()
         }//createUser
     }
     
 
 }
+
 extension SignUpVC : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        self.imageView.image = info[.originalImage] as? UIImage
+        self.imageView.image = info[.editedImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
 }

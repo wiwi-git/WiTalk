@@ -88,16 +88,8 @@ extension ChatRoomsViewController : UITableViewDelegate, UITableViewDataSource {
             
             cell.imageview.layer.cornerRadius = cell.imageview.frame.width/2
             cell.imageview.layer.masksToBounds = true
-            /*
-            let url = URL(string: item["profileImageUrl"] as! String)
-            URLSession.shared.dataTask(with: url!) { (data, urlResponse, error) in
-                DispatchQueue.main.async {
-                    cell.imageview.image = UIImage(data: data!)
-                }
-            }.resume()
-            */
-            cell.imageview.image = #imageLiteral(resourceName: "basic_profile")
-            
+            let url = item["profileImageUrl"] as? String ?? ""
+            cell.imageview.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named:"basic_profile"))
             let lastMessageKey = self.chatRooms[indexPath.row].comments.keys.sorted {$0 > $1}
             cell.label_lastmessage.text = self.chatRooms[indexPath.row].comments[lastMessageKey[0]]?.message
             let unixTime = self.chatRooms[indexPath.row].comments[lastMessageKey[0]]?.timestamp

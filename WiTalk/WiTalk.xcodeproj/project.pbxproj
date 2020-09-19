@@ -16,6 +16,7 @@
 		177BDB7C24C5DC7E0098B438 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */; };
 		177CF79224A22A5F0018F354 /* MyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177CF79124A22A5F0018F354 /* MyInfo.swift */; };
 		1781E40A24BCD9D000E34A6E /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781E40924BCD9D000E34A6E /* Layer.swift */; };
+		1794F48B2514F7AA00EEBBBD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794F48A2514F7AA00EEBBBD /* ProfileViewController.swift */; };
 		17A9185724ACC7AB006D386C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9185624ACC7AB006D386C /* Color.swift */; };
 		17A9424724ED54C700EB1F05 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9424624ED54C700EB1F05 /* LoginVC.swift */; };
 		17A9424924ED559600EB1F05 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A9424824ED559600EB1F05 /* PeopleViewController.swift */; };
@@ -46,6 +47,7 @@
 		177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		177CF79124A22A5F0018F354 /* MyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfo.swift; sourceTree = "<group>"; };
 		1781E40924BCD9D000E34A6E /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		1794F48A2514F7AA00EEBBBD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		17A9185624ACC7AB006D386C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		17A9424624ED54C700EB1F05 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		17A9424824ED559600EB1F05 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				172385E5250A475D00AE42E5 /* ChatBoard.storyboard */,
 				172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */,
 				17D5038A2510D1AA008D6966 /* MyPageViewController.swift */,
+				1794F48A2514F7AA00EEBBBD /* ProfileViewController.swift */,
 			);
 			path = WiTalk;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				17D5038B2510D1AA008D6966 /* MyPageViewController.swift in Sources */,
 				17A9424D24ED584D00EB1F05 /* ChatRoomViewController.swift in Sources */,
 				17A9424B24ED561100EB1F05 /* ChatViewController.swift in Sources */,
+				1794F48B2514F7AA00EEBBBD /* ProfileViewController.swift in Sources */,
 				17A9185724ACC7AB006D386C /* Color.swift in Sources */,
 				17A9425124ED58D200EB1F05 /* MyMessageCell.swift in Sources */,
 			);

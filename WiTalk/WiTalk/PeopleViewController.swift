@@ -109,8 +109,13 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             cell.nameLabel.text = self.myInfo?.name
-//            cell.statusMsgLabel.text = self.myInfo.my.statusMsg
+            if let url = self.myInfo?.profileImageUrl {
+                cell.profileImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "basic_profile"))
+            } else {
+                cell.profileImageView.image = UIImage(named: "basic_profile")
+            }
             
+//            cell.statusMsgLabel.text = self.myInfo.my.statusMsg
         } else {
             guard self.friendArray.count > indexPath.row else {
                 print("Error FriendVC.cellForRowAt. section 1- over range")
@@ -119,14 +124,14 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
             let friend = self.friendArray[indexPath.row]
             cell.nameLabel.text = friend.name
             
-            if friend.profileImageUrl != nil {
-                // imageView에 이미지 url로 연결시킬거
+            if let url = friend.profileImageUrl {
+                cell.profileImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "basic_profile"))
             } else {
                 cell.profileImageView.image = UIImage(named: "basic_profile")
             }
         }
         cell.statusMsgLabel.text = "임시 상태 메시지"
-        cell.profileImageView.image = #imageLiteral(resourceName: "basic_profile") ; // 문제가 생겨서 임시;;;
+//        cell.profileImageView.image = #imageLiteral(resourceName: "basic_profile") ; // 문제가 생겨서 임시;;;
         return cell
     }
     
@@ -136,6 +141,18 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            let cell = tableView.cellForRow(at: indexPath) as! PeopleViewCell
+            let storyboard = self.storyboard
+            let vc = storyboard?.instantiateViewController(withIdentifier: ProfileViewController.sb_id) as! ProfileViewController
+            vc.modalPresentationStyle = .popover
+            
+            vc.previousImage = cell.profileImageView.image
+            vc.previousMessage = cell.statusMsgLabel.text
+            
+            self.present(vc, animated: true)
+        }
+        
         if indexPath.section == 1 {
             let storyboard = UIStoryboard(name: "ChatBoard", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "sb_id_chatvc") as? ChatViewController

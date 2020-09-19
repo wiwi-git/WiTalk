@@ -229,7 +229,6 @@ extension ChatViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if self.comments[indexPath.row].uid == uid {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageCell
             cell.messageLabel.text = self.comments[indexPath.row].message
@@ -253,11 +252,13 @@ extension ChatViewController: UITableViewDataSource,UITableViewDelegate {
             } else {
                 cell.label_timeStamp.text = ""
             }
-            
+            if let url = self.destinationUserModel?.profileImageUrl {
+                cell.profileImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named:"basic_profile"))
+            } else {
+                cell.profileImageView.image = UIImage(named:"basic_profile")
+            }
             
 //            let url = URL(string:(self.destinationUserModel?.profileImageUrl)!)
-            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.width/2
-            cell.profileImageView.clipsToBounds = true
             /*
             URLSession.shared.dataTask(with: url!) { (data, response, error) in
                 DispatchQueue.main.async {
@@ -265,7 +266,7 @@ extension ChatViewController: UITableViewDataSource,UITableViewDelegate {
                 }
             }.resume()
             */
-            cell.profileImageView.image = #imageLiteral(resourceName: "basic_profile")
+//            cell.profileImageView.image = #imageLiteral(resourceName: "basic_profile")
             
             return cell
             

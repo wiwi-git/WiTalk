@@ -97,8 +97,109 @@
             </objects>
             <point key="canvasLocation" x="1057.9710144927537" y="-200.22321428571428"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="wNN-6X-DaU">
+            <objects>
+                <viewController storyboardIdentifier="sb_id_profiel_viewcontroller" id="6At-qY-p6Q" customClass="ProfileViewController" customModule="WiTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Au1-d2-wfI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaX-nb-eM2">
+                                <rect key="frame" x="20" y="64" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ZPT-cX-s1F"/>
+                                    <constraint firstAttribute="height" constant="30" id="dvr-La-1I9"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-App-83.5x83.5" translatesAutoresizingMaskIntoConstraints="NO" id="uWL-Eg-rpU">
+                                <rect key="frame" x="147" y="388" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="8KH-lb-Qhz"/>
+                                    <constraint firstAttribute="width" constant="120" id="oah-0B-XeM"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFW-Ly-5rc">
+                                <rect key="frame" x="20" y="524" width="374" height="88"/>
+                                <subviews>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" text="임시 상태 메시지" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q9C-wg-6dm">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="jtC-ho-cAP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-XW-rDx">
+                                        <rect key="frame" x="152.5" y="48" width="69" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WQZ-pA-IkT"/>
+                                        </constraints>
+                                        <state key="normal" title="프로필 편집"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="q9C-wg-6dm" firstAttribute="top" secondItem="GFW-Ly-5rc" secondAttribute="top" id="29m-9S-p8n"/>
+                                    <constraint firstAttribute="trailing" secondItem="q9C-wg-6dm" secondAttribute="trailing" id="7YY-mA-DvO"/>
+                                    <constraint firstItem="q9C-wg-6dm" firstAttribute="leading" secondItem="GFW-Ly-5rc" secondAttribute="leading" id="QH3-Wd-6dS"/>
+                                    <constraint firstAttribute="bottom" secondItem="CWB-XW-rDx" secondAttribute="bottom" id="YBP-Nx-lqy"/>
+                                    <constraint firstItem="CWB-XW-rDx" firstAttribute="centerX" secondItem="GFW-Ly-5rc" secondAttribute="centerX" id="cXX-Zc-eYf"/>
+                                    <constraint firstItem="CWB-XW-rDx" firstAttribute="top" secondItem="q9C-wg-6dm" secondAttribute="bottom" constant="8" id="lcH-Wk-e8P"/>
+                                    <constraint firstAttribute="bottom" secondItem="q9C-wg-6dm" secondAttribute="bottom" priority="999" id="w89-um-EKA"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="m8u-io-c2H">
+                                <rect key="frame" x="227" y="468" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Rk2-VB-i5c"/>
+                                    <constraint firstAttribute="height" constant="40" id="k2O-Ly-HpZ"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEK-YK-0qo">
+                                <rect key="frame" x="354" y="64" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7y4-ge-KXF"/>
+                                    <constraint firstAttribute="width" constant="40" id="Xt9-jx-9Ir"/>
+                                </constraints>
+                                <state key="normal" title="완료"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CaX-nb-eM2" firstAttribute="top" secondItem="h15-VI-9GZ" secondAttribute="top" constant="20" id="COJ-ay-Vx0"/>
+                            <constraint firstItem="GFW-Ly-5rc" firstAttribute="leading" secondItem="h15-VI-9GZ" secondAttribute="leading" constant="20" id="Dzj-sx-aGh"/>
+                            <constraint firstItem="uWL-Eg-rpU" firstAttribute="centerX" secondItem="Au1-d2-wfI" secondAttribute="centerX" id="OCz-dm-NTe"/>
+                            <constraint firstItem="CaX-nb-eM2" firstAttribute="leading" secondItem="h15-VI-9GZ" secondAttribute="leading" constant="20" id="RBl-B7-A4p"/>
+                            <constraint firstItem="m8u-io-c2H" firstAttribute="trailing" secondItem="uWL-Eg-rpU" secondAttribute="trailing" id="au2-WH-HZk"/>
+                            <constraint firstItem="h15-VI-9GZ" firstAttribute="trailing" secondItem="GFW-Ly-5rc" secondAttribute="trailing" constant="20" id="dPs-2V-vgt"/>
+                            <constraint firstItem="GFW-Ly-5rc" firstAttribute="top" secondItem="uWL-Eg-rpU" secondAttribute="bottom" constant="16" id="ePT-fv-xfz"/>
+                            <constraint firstItem="m8u-io-c2H" firstAttribute="bottom" secondItem="uWL-Eg-rpU" secondAttribute="bottom" id="oQD-sv-F0o"/>
+                            <constraint firstItem="uWL-Eg-rpU" firstAttribute="centerY" secondItem="Au1-d2-wfI" secondAttribute="centerY" id="ryy-ss-AuV"/>
+                            <constraint firstItem="h15-VI-9GZ" firstAttribute="trailing" secondItem="dEK-YK-0qo" secondAttribute="trailing" constant="20" id="tP2-Ic-9Qa"/>
+                            <constraint firstItem="dEK-YK-0qo" firstAttribute="top" secondItem="h15-VI-9GZ" secondAttribute="top" constant="20" id="uVb-Bv-52e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h15-VI-9GZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="CaX-nb-eM2" id="3YD-ba-3eD"/>
+                        <outlet property="editButton" destination="CWB-XW-rDx" id="Zkk-h2-Ex5"/>
+                        <outlet property="photoIconImageView" destination="m8u-io-c2H" id="Rid-PY-aDK"/>
+                        <outlet property="profileImageView" destination="uWL-Eg-rpU" id="xyA-Eh-kLj"/>
+                        <outlet property="saveButton" destination="dEK-YK-0qo" id="dxO-gB-gHG"/>
+                        <outlet property="statusMessageTextField" destination="q9C-wg-6dm" id="ryE-b7-6im"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Pv-S4-3tx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2676.811594202899" y="-200.22321428571428"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Icon-App-83.5x83.5" width="83.5" height="83.5"/>
+        <image name="close" width="198" height="198"/>
         <image name="friend" width="48" height="48"/>
+        <image name="photo" width="18" height="18"/>
     </resources>
 </document>

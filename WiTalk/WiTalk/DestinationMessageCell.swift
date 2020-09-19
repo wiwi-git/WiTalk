@@ -18,6 +18,8 @@ class DestinationMessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.bubbleImageView.tintColor = .you_chat_bubble
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
+        self.profileImageView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
