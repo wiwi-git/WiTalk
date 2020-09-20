@@ -11,11 +11,6 @@ import Firebase
 import SnapKit
 import SDWebImage
 
-struct UM {
-    var name:String
-    var profileImageUrl:String
-}
-
 class PeopleViewController: UIViewController {
     static let sb_id = "sb_id_peoplevc"
     static let sb_id_tabbar = "sb_id_peoplevc_tabbar"
@@ -47,22 +42,25 @@ class PeopleViewController: UIViewController {
                 userModel.name = dic["name"] as? String
                 userModel.profileImageUrl = dic["profileImageUrl"] as? String
                 userModel.uid = dic["uid"] as? String
+                userModel.status = dic["status"] as? String
+                
                 
                 //userModel.setValuesForKeys()
                 if userModel.uid == nil {
                     continue
                 }
+                
                 if userModel.uid! == myUid! {
                     self.myInfo = userModel
                     print("내 아이디야")
                     continue
+                } else {
+                    self.friendArray.append(userModel)
                 }
-                
-                self.friendArray.append(userModel)
             }
             
             DispatchQueue.main.async {
-                self.tableview.reloadData();
+                self.tableview.reloadData()
             }
         })
     }
@@ -70,6 +68,8 @@ class PeopleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        self.tableview.reloadData()
     }
     
  
@@ -111,11 +111,11 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
             cell.nameLabel.text = self.myInfo?.name
             if let url = self.myInfo?.profileImageUrl {
                 cell.profileImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "basic_profile"))
+                cell.profileImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "basic_profile"), options: [.refreshCached], completed: nil)
             } else {
                 cell.profileImageView.image = UIImage(named: "basic_profile")
             }
-            
-//            cell.statusMsgLabel.text = self.myInfo.my.statusMsg
+            cell.statusMsgLabel.text = self.myInfo?.status
         } else {
             guard self.friendArray.count > indexPath.row else {
                 print("Error FriendVC.cellForRowAt. section 1- over range")
@@ -123,6 +123,7 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
             }
             let friend = self.friendArray[indexPath.row]
             cell.nameLabel.text = friend.name
+            cell.statusMsgLabel.text = friend.status
             
             if let url = friend.profileImageUrl {
                 cell.profileImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "basic_profile"))
@@ -130,8 +131,6 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
                 cell.profileImageView.image = UIImage(named: "basic_profile")
             }
         }
-        cell.statusMsgLabel.text = "임시 상태 메시지"
-//        cell.profileImageView.image = #imageLiteral(resourceName: "basic_profile") ; // 문제가 생겨서 임시;;;
         return cell
     }
     
@@ -149,6 +148,7 @@ extension PeopleViewController : UITableViewDelegate, UITableViewDataSource {
             
             vc.previousImage = cell.profileImageView.image
             vc.previousMessage = cell.statusMsgLabel.text
+            vc.userName = cell.nameLabel.text
             
             self.present(vc, animated: true)
         }

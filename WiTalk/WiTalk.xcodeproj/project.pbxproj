@@ -33,7 +33,7 @@
 		17EA4B6A24A1F4C20010E3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6924A1F4C20010E3B7 /* Assets.xcassets */; };
 		17EA4B6D24A1F4C20010E3B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EA4B6B24A1F4C20010E3B7 /* LaunchScreen.storyboard */; };
 		17EA4B7B24A1FAAB0010E3B7 /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4B7A24A1FAAB0010E3B7 /* LoadingVC.swift */; };
-		DA817185B6F044DDDA87DC0E /* Pods_WiTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96EEE71BC2F3AE25EB87F018 /* Pods_WiTalk.framework */; };
+		3CB31E7BA1BBFC194D3184D8 /* Pods_WiTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37110CC59235362548CB2D84 /* Pods_WiTalk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +66,7 @@
 		17EA4B6C24A1F4C20010E3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17EA4B6E24A1F4C20010E3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17EA4B7A24A1FAAB0010E3B7 /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
-		96EEE71BC2F3AE25EB87F018 /* Pods_WiTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37110CC59235362548CB2D84 /* Pods_WiTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WiTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E5E9044D7590BD82E0DB47 /* Pods-WiTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiTalk.debug.xcconfig"; path = "Target Support Files/Pods-WiTalk/Pods-WiTalk.debug.xcconfig"; sourceTree = "<group>"; };
 		AFFC3519D1E1587572EAAC1C /* Pods-WiTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WiTalk.release.xcconfig"; path = "Target Support Files/Pods-WiTalk/Pods-WiTalk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17765DA0251347E700A9BD11 /* LocalAuthentication.framework in Frameworks */,
-				DA817185B6F044DDDA87DC0E /* Pods_WiTalk.framework in Frameworks */,
+				3CB31E7BA1BBFC194D3184D8 /* Pods_WiTalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +92,44 @@
 				1781E40924BCD9D000E34A6E /* Layer.swift */,
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		179E8DF525173BAC008EB4A1 /* FriendBoard */ = {
+			isa = PBXGroup;
+			children = (
+				17A9424824ED559600EB1F05 /* PeopleViewController.swift */,
+				1717EA4624ED95AA00EF9B6A /* PeopleViewCell.swift */,
+				1717EA4724ED95AA00EF9B6A /* PeopleViewCell.xib */,
+				172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */,
+				1794F48A2514F7AA00EEBBBD /* ProfileViewController.swift */,
+			);
+			path = FriendBoard;
+			sourceTree = "<group>";
+		};
+		179E8DF825173BF8008EB4A1 /* ChatBoard */ = {
+			isa = PBXGroup;
+			children = (
+				17A9424A24ED561100EB1F05 /* ChatViewController.swift */,
+				17A9424C24ED584D00EB1F05 /* ChatRoomViewController.swift */,
+				17A9424E24ED58AA00EB1F05 /* MyMessageCell.xib */,
+				17A9425024ED58D200EB1F05 /* MyMessageCell.swift */,
+				17A9425224ED592200EB1F05 /* DestinationMessageCell.swift */,
+				17A9425424ED592B00EB1F05 /* DestinationMessageCell.xib */,
+				172385E5250A475D00AE42E5 /* ChatBoard.storyboard */,
+			);
+			path = ChatBoard;
+			sourceTree = "<group>";
+		};
+		179E8DFA25173C1A008EB4A1 /* MainBoard */ = {
+			isa = PBXGroup;
+			children = (
+				17EA4B7A24A1FAAB0010E3B7 /* LoadingVC.swift */,
+				17EA4B6624A1F4C00010E3B7 /* Main.storyboard */,
+				177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */,
+				17A9424624ED54C700EB1F05 /* LoginVC.swift */,
+				17D5038A2510D1AA008D6966 /* MyPageViewController.swift */,
+			);
+			path = MainBoard;
 			sourceTree = "<group>";
 		};
 		17EA4B5424A1F4C00010E3B7 = {
@@ -117,29 +155,15 @@
 			children = (
 				1717EA4524ED7E9700EF9B6A /* WiTalk.entitlements */,
 				17BE1C8224C23EF500D74282 /* GoogleService-Info.plist */,
+				177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */,
 				17EA4B6024A1F4C00010E3B7 /* AppDelegate.swift */,
-				17EA4B7A24A1FAAB0010E3B7 /* LoadingVC.swift */,
-				17EA4B6624A1F4C00010E3B7 /* Main.storyboard */,
 				17EA4B6924A1F4C20010E3B7 /* Assets.xcassets */,
 				17EA4B6B24A1F4C20010E3B7 /* LaunchScreen.storyboard */,
 				17EA4B6E24A1F4C20010E3B7 /* Info.plist */,
 				176DE24A24AF40E60005ABA2 /* New Group */,
-				177BDB7924C5DA290098B438 /* RemoteConfigDefaults.plist */,
-				177BDB7B24C5DC7E0098B438 /* SignUpVC.swift */,
-				17A9424624ED54C700EB1F05 /* LoginVC.swift */,
-				17A9424824ED559600EB1F05 /* PeopleViewController.swift */,
-				17A9424A24ED561100EB1F05 /* ChatViewController.swift */,
-				17A9424C24ED584D00EB1F05 /* ChatRoomViewController.swift */,
-				17A9424E24ED58AA00EB1F05 /* MyMessageCell.xib */,
-				17A9425024ED58D200EB1F05 /* MyMessageCell.swift */,
-				17A9425224ED592200EB1F05 /* DestinationMessageCell.swift */,
-				17A9425424ED592B00EB1F05 /* DestinationMessageCell.xib */,
-				1717EA4624ED95AA00EF9B6A /* PeopleViewCell.swift */,
-				1717EA4724ED95AA00EF9B6A /* PeopleViewCell.xib */,
-				172385E5250A475D00AE42E5 /* ChatBoard.storyboard */,
-				172385E7250A4CE800AE42E5 /* FriendBoard.storyboard */,
-				17D5038A2510D1AA008D6966 /* MyPageViewController.swift */,
-				1794F48A2514F7AA00EEBBBD /* ProfileViewController.swift */,
+				179E8DFA25173C1A008EB4A1 /* MainBoard */,
+				179E8DF825173BF8008EB4A1 /* ChatBoard */,
+				179E8DF525173BAC008EB4A1 /* FriendBoard */,
 			);
 			path = WiTalk;
 			sourceTree = "<group>";
@@ -157,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				17765D9F251347E700A9BD11 /* LocalAuthentication.framework */,
-				96EEE71BC2F3AE25EB87F018 /* Pods_WiTalk.framework */,
+				37110CC59235362548CB2D84 /* Pods_WiTalk.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,7 +197,7 @@
 				17EA4B5924A1F4C00010E3B7 /* Sources */,
 				17EA4B5A24A1F4C00010E3B7 /* Frameworks */,
 				17EA4B5B24A1F4C00010E3B7 /* Resources */,
-				8C7553C5FD1B8718FBBA0307 /* [CP] Embed Pods Frameworks */,
+				04EBE93202D415F9570475D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,7 +215,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "위대연";
 				TargetAttributes = {
 					17EA4B5C24A1F4C00010E3B7 = {
@@ -238,7 +262,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8C7553C5FD1B8718FBBA0307 /* [CP] Embed Pods Frameworks */ = {
+		04EBE93202D415F9570475D5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,6 +374,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -374,7 +399,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -410,6 +435,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -428,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -447,7 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q77G9L4656;
 				INFOPLIST_FILE = WiTalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,7 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q77G9L4656;
 				INFOPLIST_FILE = WiTalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -26,6 +26,12 @@ class SignUpVC: UIViewController {
     let remoteConfig = RemoteConfig.remoteConfig()
     var color: String!
     
+    enum TextFieldTag:Int {
+        case name = 10
+        case password
+        case email
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let statusBar = UIView()
@@ -73,6 +79,13 @@ class SignUpVC: UIViewController {
             maker.centerX.centerY.equalTo(self.view)
         }
         activityIndicator.isHidden = true
+        
+        self.nameTextfield.delegate = self
+        self.emailTextfield.delegate = self
+        self.passwordTextfield.delegate = self
+        self.nameTextfield.tag = TextFieldTag.name.rawValue
+        self.emailTextfield.tag = TextFieldTag.email.rawValue
+        self.passwordTextfield.tag = TextFieldTag.password.rawValue
     }
     
     @objc func touchUpButtons(_ btn:UIButton) {
@@ -91,13 +104,52 @@ class SignUpVC: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    func isValidEmail(email:String) -> Bool {
+           let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+           let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+           return emailTest.evaluate(with: email)
+    }
+    
     func signUp(email:String,name:String,pass:String,image:UIImage?){
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
         
+        guard isValidEmail(email: email) else {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            
+            let alertController = UIAlertController(title: "형식오류", message: "이메일주소를 다시 확인해 주세요.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in }))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        guard name.count > 0 else {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            
+            let alertController = UIAlertController(title: "형식오류", message: "이름은 한자리 이상 입력하셔야 합니다.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in }))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        guard pass.count > 5 else {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            
+            let alertController = UIAlertController(title: "형식오류", message: "비밀번호는 6자리 이상 입력하셔야 합니다.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in }))
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
         Auth.auth().createUser(withEmail: email, password: pass) { (result, error) in
             if let err = error {
                 print("ERRor createUser " + err.localizedDescription)
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+                return
             }
             guard let uid = result?.user.uid else { return }
             let dataBaseRef = Database.database().reference()
@@ -122,8 +174,9 @@ class SignUpVC: UIViewController {
                             let value:[String:Any] = url != nil ?
                                 [ "name":name,
                                 "profileImageUrl": url!.absoluteString,
-                                "uid":currentUser.uid ] :
-                                [ "name":name, "uid":currentUser.uid ]
+                                "uid":currentUser.uid,
+                                "status":""] :
+                                [ "name":name, "uid":currentUser.uid, "status":"" ]
                             
                             dataBaseRef.child("users").child(uid).setValue(value) { (error, ref) in
                                 if let err = error {
@@ -137,7 +190,11 @@ class SignUpVC: UIViewController {
                     }
                 } else {
                     print("ERROR, SignUpViewcontroller, SignUp, jpg데이터 변환 실패")
-                    dataBaseRef.child("users").child(uid).setValue(["name" : name, "uid":Auth.auth().currentUser?.uid]) { (error, ref) in
+                    let currentUser = Auth.auth().currentUser!
+                    dataBaseRef.child("users").child(uid).setValue(
+                    ["name" : name,
+                     "uid":currentUser.uid,
+                     "status":""]) { (error, ref) in
                         if let err = error {
                             print("ERROR, Error, SignUpViewcontroller, SignUp, database setValue \(err.localizedDescription)")
                         }
@@ -159,13 +216,26 @@ class SignUpVC: UIViewController {
             }
         }//createUser
     }
-    
-
 }
 
-extension SignUpVC : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+extension SignUpVC : UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.imageView.image = info[.editedImage] as? UIImage
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let tf = TextFieldTag.init(rawValue: textField.tag){
+            switch tf {
+            case .email:
+                nameTextfield.becomeFirstResponder()
+            case .name:
+                passwordTextfield.becomeFirstResponder()
+            case .password:
+                passwordTextfield.endEditing(true)
+            }
+        }
+        return true
+    }
+    
 }
